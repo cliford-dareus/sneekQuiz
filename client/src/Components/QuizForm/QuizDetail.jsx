@@ -3,6 +3,7 @@ import { AddQuizFormContainer, Form, InputContainer, InputField, SelectField } f
 import { useFormStateContext } from '../../Contexts/FormHooks';
 import { FIELDS, STEPS } from '../../Helpers/constants';
 import QuizFormError from './QuizFormError';
+import { defaultCategory } from '../../Helpers/constants';
 
 export const QuizDetail = () => {
   const { fields, setStep, updateFields} = useFormStateContext();
@@ -53,11 +54,10 @@ export const QuizDetail = () => {
               value={data.category}
             >
               <option>Choose a category</option>
-              <option value="science">science</option>
-              <option value="math">Math</option>
-              <option value="biology">Biology</option>
-              <option value="chemestry">Chemistry</option>
-              <option value="nursing">Nursing</option>
+              {defaultCategory.map((category) => {
+                const { name, value } = category
+                return <option value={value}>{name}</option>
+              })}
             </SelectField>
           </InputContainer>
             <button

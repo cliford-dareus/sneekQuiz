@@ -1,17 +1,18 @@
 import React from 'react';
 import { SearchCardContainer, SearchCardTitle } from '../Utils/Styles/SearchPageStyle';
 
-const SearchedCard = ({ quiz }) => {
+const SearchedCard = ({ quiz, title }) => {
   return (
     <SearchCardContainer>
-      <SearchCardTitle>Card Title</SearchCardTitle>
-      {quiz.map((item)=> {
+      <SearchCardTitle>{title}</SearchCardTitle>
+      {quiz.length !== 0?
+        quiz.map((item)=> {
         return (
           <>
             <p>{item.title}</p>
           </>
         )
-      })}
+      }): 'Search for a Quiz'}
     </SearchCardContainer>
   );
 };

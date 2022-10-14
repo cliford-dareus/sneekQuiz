@@ -1,12 +1,12 @@
 import React from 'react';
 import { CategoryCardsContainer, CategoryCardsTitle } from '../Utils/Styles/LandingPageStyles';
 
-const CategoryCards = () => {
+const CategoryCards = ({ card }) => {
   
   return (
     <CategoryCardsContainer>
         <CategoryCardsTitle>
-            Science
+            { card.name}
         </CategoryCardsTitle>
     </CategoryCardsContainer>
   );

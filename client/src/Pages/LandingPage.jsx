@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../Components/Button';
 import CategoryCards from '../Components/CategoryCards';
 import { navList } from '../Utils/StaticData.js/SideBarData';
+import { defaultCategory } from '../Helpers/constants';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
@@ -66,7 +67,7 @@ const LandingPage = () => {
             // onSwiper={(swiper) => console.log(swiper)}
             // onSlideChange={() => console.log('slide change')}
           >
-            { navList.map((card, index) => {
+            { defaultCategory.map((card, index) => {
               return <SwiperSlide virtualIndex={index} key={index}>
                 <CategoryCards card={card}/>
               </SwiperSlide>

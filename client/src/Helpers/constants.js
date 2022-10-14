@@ -16,3 +16,30 @@ export const defaultFields = {
     },
     quiz: []
 }
+
+export const defaultCategory = [
+    {
+        name: 'Biology',
+        value: 'biogoly'
+    },
+    {
+        name: 'Math',
+        value: 'math'
+    },
+    {
+        name: 'Chemestry',
+        value: 'chemestry'
+    },
+    {
+        name: 'History',
+        value: 'history'
+    },
+    {
+        name: 'Science',
+        value: 'science'
+    },
+    {
+        name: 'Geology',
+        value: 'geology'
+    },
+]

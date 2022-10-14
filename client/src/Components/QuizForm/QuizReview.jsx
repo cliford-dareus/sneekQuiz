@@ -31,8 +31,6 @@ const QuizReview = () => {
         Navigate('/dashboard');
         try {
             await axios.post('http://localhost:5000/api/v1/quiz/addquiz', quizData,{ withCredentials: true,credentials: 'include'});
-
-            
         } catch (error) {
             console.log(error)
         };
