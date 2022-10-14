@@ -1,0 +1,84 @@
+import React from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import QuizCard from './QuizCard';
+import { useGlobalContext } from '../../Contexts/GlobalContext';
+import { useFormStateContext } from '../../Contexts/FormHooks';
+import { FIELDS, STEPS } from '../../Helpers/constants';
+import { QuizCardContainer, QuizReviewContainer } from '../../Utils/Styles/AddQuizStyle';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
+const QuizReview = () => {
+    const { fields, setStep, updateFields } = useFormStateContext();
+    const { title, category } = fields.details;
+    const Navigate = useNavigate();
+    const { user } = useGlobalContext();
+
+    const goBack = () => {
+        setStep(STEPS.QUIZ);
+    };
+
+    const submitQuiz = async() => {
+        const { title, category } = fields.details;
+        const { quiz } = fields;
+        const quizData = {title,category,user: user.userId, quizzes: [...quiz]};
+        Navigate('/dashboard');
+        try {
+            await axios.post('http://localhost:5000/api/v1/quiz/addquiz', quizData,{ withCredentials: true,credentials: 'include'});
+
+            
+        } catch (error) {
+            console.log(error)
+        };
+    };
+
+  return (
+    <QuizReviewContainer>
+        <div>
+            <h4>{title}</h4>
+            <p>{category}</p>
+        </div>
+        <QuizCardContainer>
+            <Swiper
+                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                spaceBetween={38}
+                slidesPerView= {2}
+                navigation
+                pagination={{ clickable: true }}
+                scrollbar={{ draggable: true }}
+            >
+                {fields.quiz.map((quiz, index) => (
+                    <SwiperSlide 
+                        virtualIndex={index}
+                        key={index}
+                    >
+                        <QuizCard quiz={quiz}/>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+        </QuizCardContainer>
+
+        <div>
+            <button
+                type='button'
+                onClick={goBack}
+            >
+                prev
+            </button>
+            <button
+                onClick={submitQuiz}
+            >
+                Submit
+            </button>
+        </div>
+    </QuizReviewContainer>
+  );
+};
+
+export default QuizReview;
