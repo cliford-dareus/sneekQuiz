@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from '../Components/Button';
 import CategoryCards from '../Components/CategoryCards';
-import { navList } from '../Utils/StaticData.js/SideBarData';
 import { defaultCategory } from '../Helpers/constants';
 
 import { Swiper, SwiperSlide } from 'swiper/react';

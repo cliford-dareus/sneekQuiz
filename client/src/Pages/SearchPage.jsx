@@ -3,8 +3,8 @@ import { Form, InputField } from '../Utils/Styles/AddQuizStyle';
 import { defaultCategory } from '../Helpers/constants';
 import { useUserContext } from '../Contexts/UserQuizzesContext';
 import axios from 'axios';
-import { SearchCardContainer, SearchCardTitle, SearchPageCardContainer, SearchPageContainer, SearchPageContentContainer, SearchPageFormContainer, SearchPageTitle } from '../Utils/Styles/SearchPageStyle';
 import SearchedCard from '../Components/SearchedCard';
+import { SearchCardContainer, SearchCardTitle, SearchPageCardContainer, SearchPageContainer, SearchPageContentContainer, SearchPageFormContainer, SearchPageTitle } from '../Utils/Styles/SearchPageStyle';
 
 const SearchPage = () => {
     const [ quiz, setQuiz ] = useState([]);

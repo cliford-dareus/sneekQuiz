@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DashBoardCardContainer } from '../Utils/Styles/DashBoardStyle';
+import QuizModal from './QuizModal';
 
-const DashBoardCard = ({quiz}) => {
+const DashBoardCard = ({ quiz }) => {
+  const [ openModal, setOpenModal ] = useState(false);
+
   return (
-    <DashBoardCardContainer>
+    <>
+      <DashBoardCardContainer
+      onDoubleClick={() => setOpenModal(true)}
+      >
         {quiz.title}
-    </DashBoardCardContainer>
+      </DashBoardCardContainer>
+
+      { openModal && <QuizModal quiz={quiz} setOpenModal={setOpenModal}/>}
+    </>
   );
 };
 

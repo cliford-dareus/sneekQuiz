@@ -5,6 +5,7 @@ export const DashBoardContainer = styled.div`
     padding: 1em;
     color: white;
     height: 100vh;
+    position: relative;
 `;
 
 export const DashBoardHeader = styled.header`
@@ -84,7 +85,7 @@ export const DashBoardAddButton = styled(Link)`
 `;
 
 export const DashBoardUserQuizzes = styled.div`
-position: relative;
+    position: relative;
     // border: 1px solid white;
     width: 50%;
     display: flex;

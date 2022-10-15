@@ -6,6 +6,7 @@ const globalContext = createContext()
 const AppProvider = ({ children }) => {
     const [ isLoading, setIsLoading ] = useState(true);
     const [ user, setUser ] = useState(null);
+    const [ quizzes, setQuizzes ] = useState([]);
 
     const saveUser = (user) => {
         setUser(user);
@@ -43,8 +44,21 @@ const AppProvider = ({ children }) => {
         };
     };
 
+    const fetchQuizzes = async () => {
+        try {
+            const { data } = await axios.get(`http://localhost:5000/api/v1/quiz/all`, { 
+            withCredentials: true,
+            credentials: 'include'
+        });
+        setQuizzes(data.quiz);
+        } catch (error) {
+            console.log(error);
+        };
+    };
+
     useEffect(() => {
         fetchUser();
+        fetchQuizzes();
     },[]);
 
   return (
@@ -54,6 +68,7 @@ const AppProvider = ({ children }) => {
         saveUser,
         user,
         logoutUser,
+        quizzes
       }}
     >
         {children}

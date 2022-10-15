@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 export const SearchPageContainer = styled.div`
     width: 100%;
@@ -66,14 +67,19 @@ export const SearchPageCardContainer = styled.div`
     }
 `;
 
+// Search Card Style
 export const SearchCardContainer = styled.div`
     width: 33%;
     height: 300px;
     border: 1px solid black;
     border-radius: .5em;
-    padding: 1em 0;
+    padding: 1em;
 `;
 
 export const SearchCardTitle = styled.h5`
     text-align: center;
+`;
+
+export const SearchResultContainer = styled(Link)`
+    
 `;

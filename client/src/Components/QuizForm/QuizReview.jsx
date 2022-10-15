@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import QuizCard from './QuizCard';
+import { useNavigate } from 'react-router-dom';
 import { useGlobalContext } from '../../Contexts/GlobalContext';
+import { useUserContext } from '../../Contexts/UserQuizzesContext';
 import { useFormStateContext } from '../../Contexts/FormHooks';
 import { FIELDS, STEPS } from '../../Helpers/constants';
 import { QuizCardContainer, QuizReviewContainer } from '../../Utils/Styles/AddQuizStyle';
@@ -19,6 +20,7 @@ const QuizReview = () => {
     const { title, category } = fields.details;
     const Navigate = useNavigate();
     const { user } = useGlobalContext();
+    const { getUserQuizzes } = useUserContext();
 
     const goBack = () => {
         setStep(STEPS.QUIZ);
@@ -31,6 +33,7 @@ const QuizReview = () => {
         Navigate('/dashboard');
         try {
             await axios.post('http://localhost:5000/api/v1/quiz/addquiz', quizData,{ withCredentials: true,credentials: 'include'});
+            getUserQuizzes()
         } catch (error) {
             console.log(error)
         };

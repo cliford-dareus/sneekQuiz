@@ -1,7 +1,10 @@
 import { QuizDetail } from "../Components/QuizForm/QuizDetail";
 import { QuizForm } from "../Components/QuizForm/QuizForm";
 import QuizReview from "../Components/QuizForm/QuizReview";
-import { STEPS } from "./constants";
+import QuizEntry from "../Components/QuizMode/QuizEntry";
+import QuizStart from "../Components/QuizMode/QuizStart";
+import QuizDone from "../Components/QuizMode/QuizDone";
+import { STEPS, QUIZSTEPS } from "./constants";
 
 export const getCurrentForm = (step) => {
   switch (step) {
@@ -11,6 +14,19 @@ export const getCurrentForm = (step) => {
         return <QuizForm />;
     case STEPS.REVIEW:
         return <QuizReview />;
+    default:
+        break;
+  };
+};
+
+export const getCurrentQuiz = (step) => {
+    switch (step) {
+    case QUIZSTEPS.STARTQUIZ:
+        return <QuizStart />;
+    case QUIZSTEPS.QUIZENTRY:
+        return <QuizEntry />;
+    case QUIZSTEPS.REVIEWQUIZ:
+        return <QuizDone />;
     default:
         break;
   };

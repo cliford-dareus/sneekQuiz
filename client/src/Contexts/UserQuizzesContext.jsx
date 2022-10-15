@@ -30,6 +30,7 @@ const UserQuizzesProvider = ({ children }) => {
         };
     };
     
+    
     useEffect(()=> {
         getUserQuizzes();
         getAllQuizzes();
@@ -41,7 +42,8 @@ const UserQuizzesProvider = ({ children }) => {
             quizzes,
             setQuizzes,
             setUser,
-            allQuiz
+            allQuiz,
+            getUserQuizzes
         }}
     >
         {children}

@@ -31,7 +31,7 @@ const getQuiz = async (req, res) => {
 };
 
 const getUserQuiz = async ( req, res ) => {
-    const {id} = req.params;
+    const { id } = req.params;
 
     const quiz = await Quiz.find({ user: id});
     res.status(StatusCodes.OK).json({ quiz })
@@ -48,10 +48,18 @@ const updateQuiz = async (req, res) => {
     };
 };
 
+const deleteQuiz = async ( req, res ) => {
+    const { id } = req.params;
+    console.log(`id is ${id}`)
+    const quiz = await Quiz.findOneAndDelete({ _id: id});
+    res.status(StatusCodes.OK).json({ quiz });
+}
+
 module.exports = {
     createQuiz,
     getUserQuiz,
     updateQuiz,
     getAllQuiz,
-    getQuiz
+    getQuiz,
+    deleteQuiz
 };

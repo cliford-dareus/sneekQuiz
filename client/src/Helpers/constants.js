@@ -17,6 +17,12 @@ export const defaultFields = {
     quiz: []
 }
 
+export const QUIZSTEPS = {
+    STARTQUIZ: 'STARTQUIZ_STEP',
+    QUIZENTRY: 'QUIZENTRY_STEP',
+    REVIEWQUIZ: 'REVIEWQUIZ_STEP'
+};
+
 export const defaultCategory = [
     {
         name: 'Biology',

@@ -11,6 +11,7 @@ import ProtectedRoute from './Components/ProtectedRoute';
 import DashBoard from "./Pages/DashBoard";
 import AddQuizPage from "./Pages/AddQuizPage";
 import SearchPage from "./Pages/SearchPage";
+import QuizModePage from "./Pages/QuizModePage";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route element={<ProtectedRoute/>}>
           <Route path="/dashboard" element={<DashBoard/>} />
           <Route path="/addquiz" element={<AddQuizPage/>} />
+          <Route path="/quiz/:id" element={<QuizModePage/>} />
         </Route>
       
       </Routes>
