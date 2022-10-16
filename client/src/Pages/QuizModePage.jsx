@@ -1,32 +1,31 @@
-import React from 'react';
-import { useGlobalContext } from '../Contexts/GlobalContext';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { QuizStepContext } from '../Contexts/QuizModeContext/QuizStepsContext';
+import { getCurrentQuiz } from '../Helpers/QuizPage';
+import { QUIZSTEPS } from '../Helpers/constants';
 
 const QuizModePage = () => {
-  const { quizzes } = useGlobalContext();
+  const [ step, setStep ] = useState(QUIZSTEPS.STARTQUIZ);
+  const [ data, setData ] = useState()
+  const [ score, setScore ] = useState()
 
-  const { pathname } = useLocation();
-  const id = pathname.split('/:')[1];
-
-  const getQuiz = quizzes.filter((quiz)=>{
-    if(quiz._id === id ){
-      return quiz
-    }
-  });
-
-  const quiz = getQuiz[0];
-  console.log(quiz.quizzes)
   return (
     <div>
       <h3>Quiz Mode</h3>
-
       <div>
-        <h5>{quiz.title}</h5>
-
-        <div>
-          
-        </div>
-        <Link to='/'>Start Quiz</Link>
+        <QuizStepContext.Provider 
+          value={{ 
+            step, 
+            setStep, 
+            data, 
+            setData, 
+            score, 
+            setScore 
+          }
+        }>
+          <div>
+             {getCurrentQuiz(step)}
+          </div>
+        </QuizStepContext.Provider>
       </div>
     </div>
   );

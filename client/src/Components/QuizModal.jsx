@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useUserContext } from '../Contexts/UserQuizzesContext';
 
@@ -22,7 +23,11 @@ const QuizModal = ({ setOpenModal, quiz}) => {
       <button>edit</button>
       <button onClick={deleteQuiz}>delete</button>
       <button onClick={() => setOpenModal(false)}>close</button>
-      <button>start Quiz</button>
+      <Link
+        to={`/quiz/:${quiz._id}`}
+      >
+        start Quiz
+      </Link>
     </QuizModalContainer>
   );
 };

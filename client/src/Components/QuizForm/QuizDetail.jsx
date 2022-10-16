@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { AddQuizFormContainer, Form, InputContainer, InputField, SelectField } from '../../Utils/Styles/AddQuizStyle';
 import { useFormStateContext } from '../../Contexts/FormHooks';
 import { FIELDS, STEPS } from '../../Helpers/constants';
-import QuizFormError from './QuizFormError';
 import { defaultCategory } from '../../Helpers/constants';
+import QuizFormError from './QuizFormError';
 
 export const QuizDetail = () => {
   const { fields, setStep, updateFields} = useFormStateContext();

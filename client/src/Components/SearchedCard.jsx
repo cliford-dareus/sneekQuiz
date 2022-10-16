@@ -2,7 +2,7 @@ import React from 'react';
 import { SearchCardContainer, SearchCardTitle, SearchResultContainer } from '../Utils/Styles/SearchPageStyle';
 
 const SearchedCard = ({ quiz, title }) => {
-  console.log(quiz)
+  
   return (
     <SearchCardContainer>
       <SearchCardTitle>{title}</SearchCardTitle>

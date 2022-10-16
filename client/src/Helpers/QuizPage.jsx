@@ -1,10 +1,10 @@
 import { QuizDetail } from "../Components/QuizForm/QuizDetail";
 import { QuizForm } from "../Components/QuizForm/QuizForm";
+import { STEPS, QUIZSTEPS } from "./constants";
 import QuizReview from "../Components/QuizForm/QuizReview";
 import QuizEntry from "../Components/QuizMode/QuizEntry";
 import QuizStart from "../Components/QuizMode/QuizStart";
 import QuizDone from "../Components/QuizMode/QuizDone";
-import { STEPS, QUIZSTEPS } from "./constants";
 
 export const getCurrentForm = (step) => {
   switch (step) {

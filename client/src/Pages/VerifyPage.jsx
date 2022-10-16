@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -18,7 +18,7 @@ const VerifyPage = () => {
         withCredentials: true,
         credentials: 'include'});
     } catch (error) {
-      // console.log(error.response);
+      console.log(error.response);
     }
   };
 
