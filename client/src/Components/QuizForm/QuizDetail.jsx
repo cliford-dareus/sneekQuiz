@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { AddQuizFormContainer, Form, InputContainer, InputField, SelectField } from '../../Utils/Styles/AddQuizStyle';
-import { useFormStateContext } from '../../Contexts/FormHooks';
+import { useFormStateContext } from '../../Contexts/FormContexts/FormHooks';
 import { FIELDS, STEPS } from '../../Helpers/constants';
 import { defaultCategory } from '../../Helpers/constants';
 import QuizFormError from './QuizFormError';

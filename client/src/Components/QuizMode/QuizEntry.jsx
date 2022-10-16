@@ -1,13 +1,17 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useQuizStatContext } from '../../Contexts/QuizModeContext/QuizHook';
 import { QUIZSTEPS } from '../../Helpers/constants';
+import { shuffle } from '../../Helpers/Shuffle';
 
 const QuizEntry = () => {
   const [ page, setPage ] = useState(0);
-  const { data, setStep, score } = useQuizStatContext();
+  const [ correct_answer, setCorrectAnswer] = useState('');
+  const { data, setStep, score, setScore } = useQuizStatContext();
 
-  const PAGELENGTH = data.quizzes.length - 1
+  const PAGELENGTH = data.quizzes.length - 1;
+  const QUIZ = data.quizzes;
 
   const next = () => {
     if(page === PAGELENGTH) return;
@@ -19,16 +23,49 @@ const QuizEntry = () => {
     setPage(page - 1);
   };
 
-  const submitQuiz = () => {
-    setStep(QUIZSTEPS.REVIEWQUIZ);
+  const getSuffleAnswers = () => {
+    const arrToShuffle = [QUIZ[page].newData.correct_answer, ...QUIZ[page].newData.wrong_answer];
+    const shuffleArray = shuffle(arrToShuffle);
+    return shuffleArray;
   };
 
+  const checkAnswer = (e) => {
+    e.preventDefault();
+    const choice = e.target.innerText;
+
+    if(choice === correct_answer){
+      setScore(score + 1)
+      next()
+    };
+  };
+
+  const submitQuiz = async() => {
+    try {
+      await axios.patch(`http://localhost:5000/api/v1/quiz/${data._id}?completedQuiz=true`, 
+      axios.defaults.withCredentials = true);
+      setStep(QUIZSTEPS.REVIEWQUIZ);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+  useEffect(() => {
+    setCorrectAnswer(QUIZ[page].newData.correct_answer);
+  }, [page]);
+  
   return (
     <div>
       <div> 
         <div>
-          <h1>{data.quizzes[page].data.question}</h1>
-          <h1>{data.quizzes[page].data.answer}</h1>
+          <h1>{score}</h1>
+          <h1>{QUIZ[page].newData.question}</h1>
+          {getSuffleAnswers().map((answer) => (
+            <button
+              onClick={checkAnswer}
+            >
+              {answer}
+            </button>
+          ))}
         </div>
 
         <div>

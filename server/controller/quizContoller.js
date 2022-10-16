@@ -38,14 +38,17 @@ const getUserQuiz = async ( req, res ) => {
 };
 
 const updateQuiz = async (req, res) => {
-    const { _id } = req.params;
+    const { id } = req.params;
     const { title, category, quizzes } = req.body;
+    const { completedQuiz } = req.query;
 
-    const quiz = await Quiz.findOneAndUpdate({ id: _id});
+    let quiz;
 
-    if(!quiz){
-        throw new CustomError.BadRequestError(`No Quiz with id: ${_id}`);
+    if(completedQuiz){
+        quiz = await Quiz.findOneAndUpdate({ _id: id}, {$inc : {'number_solved' : 1}}).exec();
     };
+
+    res.status(StatusCodes.OK).json({ quiz })
 };
 
 const deleteQuiz = async ( req, res ) => {

@@ -4,13 +4,14 @@ import QuizModal from './QuizModal';
 
 const DashBoardCard = ({ quiz }) => {
   const [ openModal, setOpenModal ] = useState(false);
-
+  
   return (
     <>
       <DashBoardCardContainer
       onDoubleClick={() => setOpenModal(true)}
       >
-        {quiz.title}
+        <h4>{quiz.title}</h4>
+        <p>{quiz.number_solved}</p>
       </DashBoardCardContainer>
 
       { openModal && <QuizModal quiz={quiz} setOpenModal={setOpenModal}/>}

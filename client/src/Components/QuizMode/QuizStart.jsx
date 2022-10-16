@@ -11,10 +11,8 @@ const QuizStart = () => {
   const { pathname } = useLocation();
   const id = pathname.split('/:')[1];
 
-  
-  
   const starQuiz = () => {
-    setStep(QUIZSTEPS.QUIZENTRY)
+    setStep(QUIZSTEPS.QUIZENTRY);
   };
 
   useEffect(()=> {
@@ -32,7 +30,7 @@ const QuizStart = () => {
 
   return (
     <div>
-      <p>{quiz.title}</p>
+      {quiz && <p>{quiz.title}</p>}
       <button onClick={starQuiz}>Start Quiz</button>
     </div>
   );

@@ -21,7 +21,7 @@ const QuizSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
-    number_visited: {
+    number_viewed: {
         type: 'Number',
         default: 0
     },

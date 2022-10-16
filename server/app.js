@@ -36,8 +36,10 @@ app.use(cookieParser(process.env.JWT_SECRET));
 app.use(morgan('combined'));
 app.use(helmet());
 app.use(cors({
-    origin: ["http://localhost:5173", "http://localhost:5000"],
-    credentials: true
+    origin: [
+        "http://localhost:5173", 
+        "http://localhost:5000"],
+        credentials: true
 }));
 app.use(xss())
 app.use(mongoSanatize());

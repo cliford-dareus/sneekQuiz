@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import NavBar from '../Components/NavBar';
 import { getCurrentForm } from '../Helpers/QuizPage'
-import { FormFieldsContext } from '../Contexts/FormFieldsContext';
-import { FormStepsContext } from '../Contexts/FormStepsContext';
+import { FormFieldsContext } from '../Contexts/FormContexts/FormFieldsContext';
+import { FormStepsContext } from '../Contexts/FormContexts/FormStepsContext';
 import { AddQuizContainer } from '../Utils/Styles/AddQuizStyle';
 import { DashBoardContainer } from '../Utils/Styles/DashBoardStyle';
 import { defaultFields, STEPS } from '../Helpers/constants';

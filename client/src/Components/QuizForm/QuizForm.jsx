@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { AddQuizFormContainer, InputField } from '../../Utils/Styles/AddQuizStyle';
-import { useFormStateContext } from '../../Contexts/FormHooks';
+import { useFormStateContext } from '../../Contexts/FormContexts/FormHooks';
 import { FIELDS, STEPS } from '../../Helpers/constants';
 
 export const QuizForm = () => {
   const { fields, setStep, updateFields} = useFormStateContext();
   const [ data, setData ] = useState({
     question: '',
-    answer: ''
+    correct_answer: '',
+    wrong_answer: ''
   });
 
   const goBack = () => {
@@ -25,8 +26,10 @@ export const QuizForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    updateFields(FIELDS.QUIZ, [...fields.quiz, {data}]);
-    setData({question: '', answer: ''});
+    const newData = {...data, wrong_answer: data.wrong_answer.split(',')};
+
+    updateFields(FIELDS.QUIZ, [...fields.quiz, {newData}]);
+    setData({question: '', correct_answer: '', wrong_answer: ''});
   }
 
   return (
@@ -41,11 +44,19 @@ export const QuizForm = () => {
         />
 
         <InputField 
-          name='answer'
+          name='correct_answer'
           type="text" 
-          placeholder='Type Answer here'
+          placeholder='Type the Correct Answer here'
           onChange={handleChange}
-          value={data.answer}
+          value={data.correct_answer}
+        />
+
+        <InputField 
+          name='wrong_answer'
+          type="text" 
+          placeholder='Type type atleast one wrong Answer here'
+          onChange={handleChange}
+          value={data.wrong_answer}
         />
 
         <div>
