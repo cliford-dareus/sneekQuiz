@@ -4,7 +4,7 @@ import { QUIZSTEPS } from "../../Helpers/constants";
 export const QuizStepContext = createContext({
     step : QUIZSTEPS.STARTQUIZ,
     data : [],
-    score : null,
+    score : [],
     setStep : () => {},
     setData : () => {},
     setScore: () => {}

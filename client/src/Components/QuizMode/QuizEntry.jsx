@@ -8,6 +8,7 @@ import { shuffle } from '../../Helpers/Shuffle';
 const QuizEntry = () => {
   const [ page, setPage ] = useState(0);
   const [ correct_answer, setCorrectAnswer] = useState('');
+  const [ answering, setAnswering ] = useState(false);
   const { data, setStep, score, setScore } = useQuizStatContext();
 
   const PAGELENGTH = data.quizzes.length - 1;
@@ -32,23 +33,24 @@ const QuizEntry = () => {
   const checkAnswer = (e) => {
     e.preventDefault();
     const choice = e.target.innerText;
+    setAnswering(true);
+    setScore([...score, choice])
 
-    if(choice === correct_answer){
-      setScore(score + 1)
+    setTimeout(()=> {
+      if(choice === correct_answer){
+         setAnswering(false);
+         next()
+      };
+
+      if(page === PAGELENGTH){
+        setStep(QUIZSTEPS.REVIEWQUIZ);
+      };
+
+      setAnswering(false)
       next()
-    };
+    }, 1000);
   };
 
-  const submitQuiz = async() => {
-    try {
-      await axios.patch(`http://localhost:5000/api/v1/quiz/${data._id}?completedQuiz=true`, 
-      axios.defaults.withCredentials = true);
-      setStep(QUIZSTEPS.REVIEWQUIZ);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  
   useEffect(() => {
     setCorrectAnswer(QUIZ[page].newData.correct_answer);
   }, [page]);
@@ -57,11 +59,11 @@ const QuizEntry = () => {
     <div>
       <div> 
         <div>
-          <h1>{score}</h1>
           <h1>{QUIZ[page].newData.question}</h1>
-          {getSuffleAnswers().map((answer) => (
+          {!answering && getSuffleAnswers().map((answer) => (
             <button
               onClick={checkAnswer}
+              // disabled={}
             >
               {answer}
             </button>
@@ -71,7 +73,6 @@ const QuizEntry = () => {
         <div>
           {(page !== 0) && <button onClick={prev}>prev</button>}
           {(page !== PAGELENGTH) && <button onClick={next}>next</button>}
-          {(page === PAGELENGTH) && <button onClick={submitQuiz}>Done</button>}
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ import { QUIZSTEPS } from '../Helpers/constants';
 const QuizModePage = () => {
   const [ step, setStep ] = useState(QUIZSTEPS.STARTQUIZ);
   const [ data, setData ] = useState()
-  const [ score, setScore ] = useState()
+  const [ score, setScore ] = useState([])
 
   return (
     <div>

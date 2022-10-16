@@ -6,7 +6,7 @@ import { QUIZSTEPS } from '../../Helpers/constants';
 
 const QuizStart = () => {
   const [ quiz, setQuiz ] = useState([]);
-  const { setStep, setData, setScore } = useQuizStatContext();
+  const { setStep, setData } = useQuizStatContext();
   const { quizzes } = useGlobalContext();
   const { pathname } = useLocation();
   const id = pathname.split('/:')[1];
@@ -25,7 +25,6 @@ const QuizStart = () => {
     const quiz = getQuiz[0];
     setQuiz(quiz);
     setData(quiz);
-    setScore(0);
   },[]);
 
   return (
