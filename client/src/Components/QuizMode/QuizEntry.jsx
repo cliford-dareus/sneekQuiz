@@ -1,81 +1,101 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useState } from 'react';
 import { useQuizStatContext } from '../../Contexts/QuizModeContext/QuizHook';
 import { QUIZSTEPS } from '../../Helpers/constants';
 import { shuffle } from '../../Helpers/Shuffle';
+import { QuizAnswerBtnContainer, QuizBack, QuizFront, QuizHolder, QuizStartContainer } from '../../Utils/Styles/QuizModeStyle';
 
 const QuizEntry = () => {
   const [ page, setPage ] = useState(0);
   const [ correct_answer, setCorrectAnswer] = useState('');
   const [ answering, setAnswering ] = useState(false);
+  const [ flip, setFlip ] = useState(false);
+  const [ shuffleArray, setShuffleArray ] = useState([]);
   const { data, setStep, score, setScore } = useQuizStatContext();
+  const [ ANSWER_ELEMENT, setANSWER_ELEMENT ] = useState(null)
 
   const PAGELENGTH = data.quizzes.length - 1;
   const QUIZ = data.quizzes;
 
+  const frontEl = useRef();
+  const backEl = useRef();
+
   const next = () => {
-    if(page === PAGELENGTH) return;
+    ANSWER_ELEMENT.classList.remove(...ANSWER_ELEMENT.classList);
+    setFlip(false);
+
+    if(page === PAGELENGTH){
+        setStep(QUIZSTEPS.REVIEWQUIZ);
+    };
+
     setPage(page + 1);
   };
 
   const prev = () => {
+    ANSWER_ELEMENT.classList.remove(...ANSWER_ELEMENT.classList);
     if(page === 0) return;
     setPage(page - 1);
   };
 
   const getSuffleAnswers = () => {
     const arrToShuffle = [QUIZ[page].newData.correct_answer, ...QUIZ[page].newData.wrong_answer];
-    const shuffleArray = shuffle(arrToShuffle);
-    return shuffleArray;
+    const shuffe = shuffle(arrToShuffle);
+    setShuffleArray(shuffe);
   };
 
   const checkAnswer = (e) => {
     e.preventDefault();
+
+    setANSWER_ELEMENT(e.target);
     const choice = e.target.innerText;
-    setAnswering(true);
+    setFlip(true);
     setScore([...score, choice])
 
-    setTimeout(()=> {
-      if(choice === correct_answer){
-         setAnswering(false);
-         next()
-      };
-
-      if(page === PAGELENGTH){
-        setStep(QUIZSTEPS.REVIEWQUIZ);
-      };
-
-      setAnswering(false)
-      next()
-    }, 1000);
+    if(choice === correct_answer){
+      e.target.classList.add('green');
+    }else{
+      e.target.classList.add('red');
+    }
   };
 
   useEffect(() => {
     setCorrectAnswer(QUIZ[page].newData.correct_answer);
+    getSuffleAnswers();
   }, [page]);
-  
+
+  console.log(flip)
+
   return (
-    <div>
-      <div> 
-        <div>
-          <h1>{QUIZ[page].newData.question}</h1>
-          {!answering && getSuffleAnswers().map((answer) => (
+    <QuizStartContainer>
+        <QuizHolder
+          // flip={flip}
+          className={`${flip ? 'flip' : ''}`}
+        >
+          <QuizFront ref={frontEl}>
+            <p>{QUIZ[page].newData.question}</p>
+          </QuizFront>
+
+          <QuizBack ref={backEl} flip={flip}>
+            <p>{correct_answer}</p>
+          </QuizBack>
+        </QuizHolder>
+
+        <QuizAnswerBtnContainer>
+          {shuffleArray.map((answer) => (
             <button
               onClick={checkAnswer}
-              // disabled={}
             >
               {answer}
             </button>
           ))}
-        </div>
+        </QuizAnswerBtnContainer>
 
         <div>
           {(page !== 0) && <button onClick={prev}>prev</button>}
-          {(page !== PAGELENGTH) && <button onClick={next}>next</button>}
+          {<button onClick={next}>next</button>}
         </div>
-      </div>
-    </div>
+    </QuizStartContainer>
   );
 };
 

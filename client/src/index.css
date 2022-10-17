@@ -126,3 +126,15 @@ ul {
   list-style-type: none;
   padding: 0;
 }
+
+.flip{
+  --rotate-y: 180deg;
+}
+
+.green{
+  background-color: #0f5132;
+}
+
+.red{
+  background-color: #ff0000;
+}

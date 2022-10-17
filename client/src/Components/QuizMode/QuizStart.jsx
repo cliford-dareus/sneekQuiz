@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { useGlobalContext } from '../../Contexts/GlobalContext';
 import { useQuizStatContext } from '../../Contexts/QuizModeContext/QuizHook';
 import { QUIZSTEPS } from '../../Helpers/constants';
+import { QuizStartContainer } from '../../Utils/Styles/QuizModeStyle';
 
 const QuizStart = () => {
   const [ quiz, setQuiz ] = useState([]);
@@ -28,10 +29,14 @@ const QuizStart = () => {
   },[]);
 
   return (
-    <div>
-      {quiz && <p>{quiz.title}</p>}
+    <QuizStartContainer>
+      {quiz && <h4>{quiz.title}</h4>}
+      <div>
+        <p>{quiz.category}</p>
+        <p>{quiz.user}</p>
+      </div>
       <button onClick={starQuiz}>Start Quiz</button>
-    </div>
+    </QuizStartContainer>
   );
 };
 

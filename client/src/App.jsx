@@ -26,11 +26,10 @@ function App() {
         <Route path="/search" exact element={<SearchPage /> } />
 
         <Route element={<ProtectedRoute/>}>
-          <Route path="/dashboard" element={<DashBoard/>} />
-          <Route path="/addquiz" element={<AddQuizPage/>} />
-          <Route path="/quiz/:id" element={<QuizModePage/>} />
+          <Route path="/dashboard" exact element={<DashBoard/>} />
+          <Route path="/addquiz" exact element={<AddQuizPage/>} />
+          <Route path="/quiz/:id" exact element={<QuizModePage/>} />
         </Route>
-      
       </Routes>
     </AppContainer>
   );
