@@ -3,6 +3,7 @@ import React from 'react';
 import { useQuizStatContext } from '../../Contexts/QuizModeContext/QuizHook';
 import { useUserContext } from '../../Contexts/UserQuizzesContext';
 import { QUIZSTEPS } from '../../Helpers/constants';
+import { QuizStartContainer } from '../../Utils/Styles/QuizModeStyle';
 import QuizCard from './QuizCard';
 
 const QuizDone = () => {
@@ -22,7 +23,7 @@ const QuizDone = () => {
   const QData = data.quizzes;
 
   return (
-    <div>
+    <QuizStartContainer>
       <div>QuizDone</div>
       <div>
         {QData.map((quiz) => (
@@ -40,7 +41,7 @@ const QuizDone = () => {
       >
         Finish
       </button>
-    </div>
+    </QuizStartContainer>
   );
 };
 

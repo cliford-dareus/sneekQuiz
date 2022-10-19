@@ -24,8 +24,8 @@ const QuizStart = () => {
     });
 
     const quiz = getQuiz[0];
-    setQuiz(quiz);
     setData(quiz);
+    setQuiz(quiz);
   },[]);
 
   return (

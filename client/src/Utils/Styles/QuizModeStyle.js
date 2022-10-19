@@ -15,23 +15,32 @@ export const QuizStartContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: white;
+`;
+
+export const QuizHolderContainer = styled.div`
+    width: 50%;
+    height: 50%;
+    transform: perspective(1000px)
 `;
 
 export const QuizHolder = styled.div`
-    width: 50%;
-    height: 50%;
+    color: black;
+    width: 100%;
+    height: 100%;
     background: white;
     border-radius: .5em;
-    padding: 1em;
     word-wrap: break-word;
     overflow: hidden;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
     transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
     transition: .8s;
-    transform: perspective(1000px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0));
+    transform: rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0));
     &:hover{
         --translate-y: -2px;
         box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
@@ -39,16 +48,29 @@ export const QuizHolder = styled.div`
 `;
 
 export const QuizFront = styled.div`
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility:    hidden;
+    -ms-backface-visibility:     hidden;
     position: absolute;
-    // left: 0;
+    left: 0;
     padding: 1em;
-    backface-visibility: hidden;
+    transform: rotateY(0deg);
 `;
 
 export const QuizBack = styled.div`
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility:    hidden;
+    -ms-backface-visibility:     hidden;
+    transform-style: preserve-3d;
     position: absolute;
-    backface-visibility: hidden;
-    transform: rotateY(${props => props.flip? '':'180deg'});
+    -webkit-transform:rotateY(180deg); 
+    // transform: rotateY(${props => props.flip? '':'180deg'});
+    transform: rotateY(180deg);
+
 `;
 
 export const QuizAnswerBtnContainer = styled.div`
@@ -59,5 +81,13 @@ export const QuizAnswerBtnContainer = styled.div`
 `;
 
 export const AnswerButton = styled.button`
-    
+    padding: .5em 0;
+    border-radius: .5em;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    &:hover{
+        transform: translateY(-2px);
+        box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+    }
 `;

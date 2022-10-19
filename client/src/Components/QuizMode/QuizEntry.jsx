@@ -1,15 +1,14 @@
-import axios from 'axios';
 import React, { useEffect, useRef } from 'react';
 import { useState } from 'react';
 import { useQuizStatContext } from '../../Contexts/QuizModeContext/QuizHook';
 import { QUIZSTEPS } from '../../Helpers/constants';
 import { shuffle } from '../../Helpers/Shuffle';
-import { QuizAnswerBtnContainer, QuizBack, QuizFront, QuizHolder, QuizStartContainer } from '../../Utils/Styles/QuizModeStyle';
+import { AnswerButton, QuizAnswerBtnContainer, QuizBack, QuizFront, QuizHolder, QuizHolderContainer, QuizStartContainer } from '../../Utils/Styles/QuizModeStyle';
 
 const QuizEntry = () => {
   const [ page, setPage ] = useState(0);
   const [ correct_answer, setCorrectAnswer] = useState('');
-  const [ answering, setAnswering ] = useState(false);
+  const [ answered, setAnswered ] = useState(false);
   const [ flip, setFlip ] = useState(false);
   const [ shuffleArray, setShuffleArray ] = useState([]);
   const { data, setStep, score, setScore } = useQuizStatContext();
@@ -18,12 +17,15 @@ const QuizEntry = () => {
   const PAGELENGTH = data.quizzes.length - 1;
   const QUIZ = data.quizzes;
 
-  const frontEl = useRef();
-  const backEl = useRef();
-
   const next = () => {
-    ANSWER_ELEMENT.classList.remove(...ANSWER_ELEMENT.classList);
-    setFlip(false);
+    if(ANSWER_ELEMENT){
+      ANSWER_ELEMENT.classList.remove(...ANSWER_ELEMENT.classList);
+    };
+    
+    if(!answered)return;
+
+    setFlip(!flip);
+    setAnswered(false)
 
     if(page === PAGELENGTH){
         setStep(QUIZSTEPS.REVIEWQUIZ);
@@ -33,7 +35,10 @@ const QuizEntry = () => {
   };
 
   const prev = () => {
-    ANSWER_ELEMENT.classList.remove(...ANSWER_ELEMENT.classList);
+    if(ANSWER_ELEMENT){
+      ANSWER_ELEMENT.classList.remove(...ANSWER_ELEMENT.classList);
+    };
+
     if(page === 0) return;
     setPage(page - 1);
   };
@@ -49,7 +54,8 @@ const QuizEntry = () => {
 
     setANSWER_ELEMENT(e.target);
     const choice = e.target.innerText;
-    setFlip(true);
+    setFlip(!flip);
+    setAnswered(true);
     setScore([...score, choice])
 
     if(choice === correct_answer){
@@ -64,30 +70,32 @@ const QuizEntry = () => {
     getSuffleAnswers();
   }, [page]);
 
-  console.log(flip)
-
   return (
     <QuizStartContainer>
+      <QuizHolderContainer>
         <QuizHolder
-          // flip={flip}
           className={`${flip ? 'flip' : ''}`}
         >
-          <QuizFront ref={frontEl}>
-            <p>{QUIZ[page].newData.question}</p>
+          <QuizFront>
+            {QUIZ[page].newData.question}
           </QuizFront>
 
-          <QuizBack ref={backEl} flip={flip}>
+          <QuizBack flip={flip}>
             <p>{correct_answer}</p>
           </QuizBack>
         </QuizHolder>
+      </QuizHolderContainer>
+        
 
         <QuizAnswerBtnContainer>
           {shuffleArray.map((answer) => (
-            <button
+            <AnswerButton
               onClick={checkAnswer}
+              disabled={answered}
+              style={{height: '2.5em', marginTop: '.5em'}}
             >
               {answer}
-            </button>
+            </AnswerButton>
           ))}
         </QuizAnswerBtnContainer>
 
