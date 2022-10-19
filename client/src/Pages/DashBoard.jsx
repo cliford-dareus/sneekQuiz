@@ -35,7 +35,7 @@ const DashBoard = () => {
               <p>Create new, edit, or test your knowlegde with quizzes created by your peers!</p>
             </DashBoardHero>
             <DashBoardAddButton to='/addquiz'>
-              <GrAdd />
+              <GrAdd style={{stroke: 'red'}}/>
             </DashBoardAddButton>
 
             <DashBoardUserQuizzes>

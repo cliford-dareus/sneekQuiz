@@ -21,7 +21,7 @@ export const LoginCTA = styled(Link)`
     display: inline-block;
     margin-left: 0.25rem;
     text-transform: capitalize;
-    color: var(--primary-100);
+    color: var(--primary-400);
     cursor: pointer;
 `; 
 
@@ -32,13 +32,13 @@ export const FormRowContainer = styled.div`
 
 export const FormLabel = styled.label`
     display: block;
-    color: white;
+    color: var(--primary-400);
 `;
 
 export const FormInput = styled.input`
     width: 100%;
     border: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid var(--primary-400);
     background: transparent;
     padding: .5em;
 `;

@@ -6,8 +6,7 @@ import styled from "styled-components";
 export const SideBarContainer = styled.div`
     width: 100%;
     height: 100vh;
-   
-    background: red; 
+    background: var(--primary-400); 
 `;
 
 export const SideBarLogoContainer = styled.div`
@@ -24,13 +23,14 @@ export const SideBarLogo = styled(Link)`
 export const SideBarNavContainer = styled.div`
     width: 100%;
     height: calc(100% - 70px);
-    background: red; 
+    background: var(--primary-400); 
     display: flex;
     // align-items: center;
 `;
 
 export const SideBarNav = styled.ul`
-    color: white;
+    color: var(--primary-900);
+    font-weight: bold;
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -49,4 +49,5 @@ export const SideBarNavItemLink = styled(Link)`
     width: 100%;
     color: inherit;
     text-transform: uppercase;
+    cursor: pointer;
 `;

@@ -9,7 +9,7 @@ export const SearchPageContainer = styled.div`
 `;
 
 export const SearchPageTitle = styled.h3`
-    color: white;
+    color: var(--primary-400);
 `;
 
 export const SearchPageFormContainer = styled.div`
@@ -37,7 +37,7 @@ export const SearchPageCardContainer = styled.div`
     width: 100%;
     height: 400px;
     padding: 4em 1em 0;
-    background: white;
+    background: var(--primary-400);
     display: flex;
     gap: 1em;
     justify-content: space-between;
@@ -48,9 +48,9 @@ export const SearchPageCardContainer = styled.div`
         height: 80px;
         aspect-ratio: 1;
         border-radius: 52%;
-        background: white;
-        top: -2.1em;
-        left: 1px;
+        background: var(--primary-400);
+        top: -2.3em;
+        left: 0px;
         z-index: -2;
     }
     :after{
@@ -71,9 +71,10 @@ export const SearchPageCardContainer = styled.div`
 export const SearchCardContainer = styled.div`
     width: 33%;
     height: 300px;
-    border: 1px solid black;
+    border: 1px solid var(--primary-100);
     border-radius: .5em;
     padding: 1em;
+    background: var(--primary-100);
 `;
 
 export const SearchCardTitle = styled.h5`

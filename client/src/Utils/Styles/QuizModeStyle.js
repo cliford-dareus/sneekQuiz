@@ -15,32 +15,31 @@ export const QuizStartContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: var(--primary-400);
 `;
 
 export const QuizHolderContainer = styled.div`
     width: 50%;
-    height: 50%;
-    transform: perspective(1000px)
+    height: 40%;
+    transform: perspective(600px);
+    transform-style: preserve-3d;
 `;
 
 export const QuizHolder = styled.div`
+    background: white;
     color: black;
     width: 100%;
     height: 100%;
-    background: white;
     border-radius: .5em;
     word-wrap: break-word;
-    overflow: hidden;
     position: relative;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-    -ms-transform-style: preserve-3d;
+    overflow: visible;
     transition: .8s;
-    transform: rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0));
+    transform: rotateY(var(--rotate-y)) translateY(var(--translate-y, 0));
     &:hover{
         --translate-y: -2px;
         box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
@@ -50,27 +49,19 @@ export const QuizHolder = styled.div`
 export const QuizFront = styled.div`
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility:    hidden;
-    -ms-backface-visibility:     hidden;
+    backface-visibility: hidden;
     position: absolute;
-    left: 0;
     padding: 1em;
-    transform: rotateY(0deg);
+    left: 0;
 `;
 
 export const QuizBack = styled.div`
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility:    hidden;
-    -ms-backface-visibility:     hidden;
-    transform-style: preserve-3d;
+    padding: 1em;
     position: absolute;
-    -webkit-transform:rotateY(180deg); 
-    // transform: rotateY(${props => props.flip? '':'180deg'});
+    backface-visibility: hidden;
     transform: rotateY(180deg);
-
 `;
 
 export const QuizAnswerBtnContainer = styled.div`

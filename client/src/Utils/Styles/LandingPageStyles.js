@@ -19,7 +19,7 @@ export const ShowcaseButtonContainer = styled.div`
 
 export const LandingPageCategoryContainer = styled.div`
     padding: 0 1em;
-    color: white;
+    color: var(--primary-400);
 `;
 
 export const LandingPageCategoryTitle = styled.h4``;
@@ -34,7 +34,7 @@ export const CategoryCardsContainer = styled.div`
     position: relative;
     width: 150px;
     height: 150px;
-    border: 1px solid white;
+    border: 1px solid var(--primary-400);
 `;
 
 export const CategoryCardsTitle = styled.h5`

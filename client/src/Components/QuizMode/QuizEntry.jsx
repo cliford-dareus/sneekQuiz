@@ -80,8 +80,8 @@ const QuizEntry = () => {
             {QUIZ[page].newData.question}
           </QuizFront>
 
-          <QuizBack flip={flip}>
-            <p>{correct_answer}</p>
+          <QuizBack>
+            {correct_answer}
           </QuizBack>
         </QuizHolder>
       </QuizHolderContainer>

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const DashBoardContainer = styled.div`
     padding: 1em;
-    color: white;
+    color: var(--primary-400);
     height: 100vh;
     position: relative;
 `;
@@ -69,7 +69,7 @@ export const DashBoardContentTop = styled.div`
 `;
 
 export const DashBoardHero = styled.div`
-width: 40%;
+    width: 40%;
 `;
 
 export const DashBoardAddButton = styled(Link)`
@@ -78,17 +78,19 @@ export const DashBoardAddButton = styled(Link)`
     border-radius: .5em;
     justify-content: center;
     align-items: center;
-    border: 1px solid white;
+    border: 1px solid var(--primary-500);
+    color: var(--primary-500);
     font-size: 2rem;
     padding: .5em;
     cursor: pointer;
 `;
 
 export const DashBoardUserQuizzes = styled.div`
-    position: relative;
-    // border: 1px solid white;
-    width: 50%;
     display: flex;
+    position: relative;
+    width: 50%;
+    border: .5em;
+    // background: var(--primary-400);
 `;
 
 export const DashBoardContentBottom = styled.div`
@@ -120,7 +122,7 @@ export const DashBoardCardContainer = styled.div`
     border-radius: .5em;
     border: 1px solid black;
     // box-shadow: ;
-    color: black;
+    color: var(--primary-900);
     overflow: hidden;
 `;
 

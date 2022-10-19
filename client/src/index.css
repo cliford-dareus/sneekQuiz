@@ -17,7 +17,7 @@ html {
   --primary-100: #e2e0ff;
   --primary-200: #c1beff;
   --primary-300: #a29dff;
-  --primary-400: #837dff;
+  --primary-400: #F4D35E;
   --primary-500: #645cff;
   --primary-600: #504acc;
   --primary-700: #3c3799;
@@ -133,6 +133,7 @@ ul {
 
 .green{
   background-color: #0f5132;
+  color: white;
 }
 
 .red{
