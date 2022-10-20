@@ -39,11 +39,12 @@ const SearchPage = () => {
         <SearchPageTitle>Discover</SearchPageTitle>
 
         <SearchPageContentContainer>
-            <h5>Search for quizzes</h5>
+            <SearchCardTitle>Search for quizzes</SearchCardTitle>
 
             <SearchPageFormContainer>
                <Form>
                     <InputField
+                        placeholder='Search for quiz...'
                         name='search'
                         type='search'
                         value={word}

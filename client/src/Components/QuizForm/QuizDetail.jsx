@@ -4,6 +4,7 @@ import { useFormStateContext } from '../../Contexts/FormContexts/FormHooks';
 import { FIELDS, STEPS } from '../../Helpers/constants';
 import { defaultCategory } from '../../Helpers/constants';
 import QuizFormError from './QuizFormError';
+import { FormButton } from '../../Utils/Styles/RegisterPageStyles';
 
 export const QuizDetail = () => {
   const { fields, setStep, updateFields} = useFormStateContext();
@@ -60,10 +61,9 @@ export const QuizDetail = () => {
               })}
             </SelectField>
           </InputContainer>
-            <button
-            >
+            <FormButton>
               Next
-            </button>
+            </FormButton>
         </Form>
         {/* Add Framer Motion animation */}
         <QuizFormError 

@@ -14,6 +14,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import { FormButton } from '../../Utils/Styles/RegisterPageStyles';
 
 const QuizReview = () => {
     const { fields, setStep, updateFields } = useFormStateContext();
@@ -66,17 +67,17 @@ const QuizReview = () => {
         </QuizCardContainer>
 
         <div>
-            <button
+            <FormButton
                 type='button'
                 onClick={goBack}
             >
                 prev
-            </button>
-            <button
+            </FormButton>
+            <FormButton
                 onClick={submitQuiz}
             >
                 Submit
-            </button>
+            </FormButton>
         </div>
     </QuizReviewContainer>
   );

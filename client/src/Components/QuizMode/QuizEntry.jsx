@@ -4,6 +4,7 @@ import { useQuizStatContext } from '../../Contexts/QuizModeContext/QuizHook';
 import { QUIZSTEPS } from '../../Helpers/constants';
 import { shuffle } from '../../Helpers/Shuffle';
 import { AnswerButton, QuizAnswerBtnContainer, QuizBack, QuizFront, QuizHolder, QuizHolderContainer, QuizStartContainer } from '../../Utils/Styles/QuizModeStyle';
+import { FormButton } from '../../Utils/Styles/RegisterPageStyles';
 
 const QuizEntry = () => {
   const [ page, setPage ] = useState(0);
@@ -100,8 +101,8 @@ const QuizEntry = () => {
         </QuizAnswerBtnContainer>
 
         <div>
-          {(page !== 0) && <button onClick={prev}>prev</button>}
-          {<button onClick={next}>next</button>}
+          {(page !== 0) && <FormButton onClick={prev}>prev</FormButton>}
+          {<FormButton onClick={next}>next</FormButton>}
         </div>
     </QuizStartContainer>
   );

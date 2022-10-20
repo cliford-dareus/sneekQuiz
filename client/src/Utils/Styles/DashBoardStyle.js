@@ -67,6 +67,7 @@ export const DashBoardContentTop = styled.div`
     gap: 1em; 
     padding: 2em 0;
     // background: red;
+    justify-content: space-between;
 `;
 
 export const DashBoardHero = styled.div`
@@ -89,7 +90,8 @@ export const DashBoardUserQuizzes = styled.div`
     display: flex;
     position: relative;
     width: 50%;
-    border: .5em;
+    border: 1px dashed var(--primary-100);
+    border-radius: .5em;
     // background: var(--primary-400);
 `;
 

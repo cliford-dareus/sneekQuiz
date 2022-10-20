@@ -4,6 +4,7 @@ import { useGlobalContext } from '../../Contexts/GlobalContext';
 import { useQuizStatContext } from '../../Contexts/QuizModeContext/QuizHook';
 import { QUIZSTEPS } from '../../Helpers/constants';
 import { QuizStartContainer } from '../../Utils/Styles/QuizModeStyle';
+import { FormButton } from '../../Utils/Styles/RegisterPageStyles';
 
 const QuizStart = () => {
   const [ quiz, setQuiz ] = useState([]);
@@ -35,7 +36,7 @@ const QuizStart = () => {
         <p>{quiz.category}</p>
         <p>{quiz.user}</p>
       </div>
-      <button onClick={starQuiz}>Start Quiz</button>
+      <FormButton onClick={starQuiz}>Start Quiz</FormButton>
     </QuizStartContainer>
   );
 };

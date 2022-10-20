@@ -11,7 +11,7 @@ export const AddQuizContainer = styled.div`
 `;
       
 export const AddQuizFormContainer = styled.div`
-    width: 60%;
+    width: 40%;
     // height: 100%;
     display: flex;
     justify-content: center;
@@ -28,15 +28,24 @@ export const InputField = styled.input`
     width: 100%;
     outline: none;
     border: none;
-    padding: .5em;
+    border-bottom: 1px solid var(--primary-400);
+    background: transparent;
+    // padding: .5em;
+    font-size: 1rem;
     margin-bottom: 1em; 
+    color: var(--primary-100);
+    margin-top: 1em;
 `;
 
 export const SelectField = styled.select`
     width: 100%;
     outline: none;
     border: none;
-    padding: .5em;
+    font-size: 1rem;
+    margin-top: 1em;
+    // padding: .5em;
+    background: transparent;
+    color: var(--primary-100);
 `;
 
 export const InputContainer = styled.div`

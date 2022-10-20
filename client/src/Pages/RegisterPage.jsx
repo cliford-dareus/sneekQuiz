@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import axios  from 'axios';
 import FormRow from '../Components/FormRow';
-import { LoginCTA, RegisterPageContainer, RegisterPageFormContainer } from '../Utils/Styles/RegisterPageStyles';
+import { Form, FormButton, FormContainer, LoginCTA, RegisterPageContainer, RegisterPageContenContainer } from '../Utils/Styles/RegisterPageStyles';
+import { SearchPageTitle } from '../Utils/Styles/SearchPageStyle';
 
 const RegisterPage = () => {
   const [ userInfo, setUserInfo ] = useState({
@@ -34,48 +34,55 @@ const RegisterPage = () => {
 
   return (
     <RegisterPageContainer>
-      <RegisterPageFormContainer>
-        <form onSubmit={registerUser}>
-          <FormRow 
-            name='name' 
-            type='name'
-            handleChange={handleChange}
-            value={userInfo.name}
-          />
+      <SearchPageTitle>Create an Account</SearchPageTitle>
 
-          <FormRow 
-            name='email' 
-            type='email'
-            handleChange={handleChange}
-            value={userInfo.email}
-          />
+      <RegisterPageContenContainer>
+          <FormContainer>
+          <Form onSubmit={registerUser}>
+            <FormRow 
+              name='name' 
+              type='name'
+              handleChange={handleChange}
+              value={userInfo.name}
+            />
 
-          <FormRow 
-            name='password' 
-            type='password'
-            handleChange={handleChange}
-            value={userInfo.password}
-          />
+            <FormRow 
+              name='email' 
+              type='email'
+              handleChange={handleChange}
+              value={userInfo.email}
+            />
 
-          <FormRow 
-            name='ocupation' 
-            type='ocupation'
-            handleChange={handleChange}
-            value={userInfo.ocupation}
-          />
+            <FormRow 
+              name='password' 
+              type='password'
+              handleChange={handleChange}
+              value={userInfo.password}
+            />
 
-          <button type='submit'>
-            Sign Up
-          </button>
-        </form>
+            <FormRow 
+              name='ocupation' 
+              type='ocupation'
+              handleChange={handleChange}
+              value={userInfo.ocupation}
+            />
 
-        <p>
-          Already a have an account?
-            <LoginCTA to='/login'>
-              Log In
-            </LoginCTA>
-        </p>
-      </RegisterPageFormContainer>
+            <FormButton type='submit'>
+              Sign Up
+            </FormButton>
+          </Form>
+
+          <p
+            style={{color: 'var(--primary-100)'}}
+          >
+            Already a have an account?
+              <LoginCTA to='/login'>
+                Log In
+              </LoginCTA>
+          </p>
+        </FormContainer>
+      </RegisterPageContenContainer>
+      
     </RegisterPageContainer>
   );
 };

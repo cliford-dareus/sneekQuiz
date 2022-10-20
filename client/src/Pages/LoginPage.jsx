@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import FormRow from '../Components/FormRow';
-import { LoginPageContainer } from '../Utils/Styles/LoginPageStyle';
+import { LoginPageContainer, LoginPageContentContainer } from '../Utils/Styles/LoginPageStyle';
 import { useNavigate } from 'react-router-dom';
 
 import { useGlobalContext } from '../Contexts/GlobalContext'
+import { Form, FormButton, FormContainer, LoginCTA } from '../Utils/Styles/RegisterPageStyles';
+import { SearchPageTitle } from '../Utils/Styles/SearchPageStyle';
 
 const LoginPage = () => {
   const [ userInfo, setUserInfo ] = useState({ email: '', password: '' });
@@ -33,24 +35,40 @@ const LoginPage = () => {
 
   return (
     <LoginPageContainer>
-      <form onSubmit={loginUser}>
-        <FormRow 
-          name='email' 
-          type='email'
-          handleChange={handleChange}
-          value={userInfo.email}
-        />
-        <FormRow 
-          name='password' 
-          type='password'
-          handleChange={handleChange}
-          value={userInfo.password}
-        />
+      <SearchPageTitle>Login</SearchPageTitle>
+      <LoginPageContentContainer>
+        <FormContainer>
+          <Form onSubmit={loginUser}>
+                <FormRow 
+                  name='email' 
+                  type='email'
+                  handleChange={handleChange}
+                  value={userInfo.email}
+                />
+                <FormRow 
+                  name='password' 
+                  type='password'
+                  handleChange={handleChange}
+                  value={userInfo.password}
+                />
 
-        <button type='submit'>
-          Sign In
-        </button>
-      </form>
+                <FormButton type='submit'>
+                  Sign In
+                </FormButton>
+          </Form>
+
+          <p
+            style={{color: 'var(--primary-100)'}}
+          >
+            Don't have an account yet?
+              <LoginCTA to='/register'>
+                Sign Up
+              </LoginCTA>
+          </p>
+        </FormContainer>
+        
+      </LoginPageContentContainer>
+      
     </LoginPageContainer>
   );
 };

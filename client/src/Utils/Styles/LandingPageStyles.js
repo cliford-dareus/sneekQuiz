@@ -4,13 +4,17 @@ import styled from "styled-components";
 
 export const LandingPageContainer = styled.div`
     width: calc(100vw - 15vw);
+    height: 100%;
     padding: 1em 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 `;
 
 export const LandingPageShowcase = styled.div`
     position: relative;
     width: 100%;
-    height: 65%;
+    height: 60%;
     background: black;
     padding: 1em;
     display: flex;

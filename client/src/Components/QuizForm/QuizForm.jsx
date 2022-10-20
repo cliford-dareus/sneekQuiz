@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { AddQuizFormContainer, InputField } from '../../Utils/Styles/AddQuizStyle';
 import { useFormStateContext } from '../../Contexts/FormContexts/FormHooks';
 import { FIELDS, STEPS } from '../../Helpers/constants';
+import { FormButton } from '../../Utils/Styles/RegisterPageStyles';
 
 export const QuizForm = () => {
   const { fields, setStep, updateFields} = useFormStateContext();
@@ -60,23 +61,23 @@ export const QuizForm = () => {
         />
 
         <div>
-          <button
+          <FormButton
             type='button'
             onClick={goBack}
           >
             Prev
-          </button>
+          </FormButton>
           <div>
-            <button
+            <FormButton
             >
               add Question
-            </button>
-            <button
+            </FormButton>
+            <FormButton
               type='button'
               onClick={next}
             >
               Next
-            </button>
+            </FormButton>
           </div>
         </div>
       </form>

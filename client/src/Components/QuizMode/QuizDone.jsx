@@ -6,6 +6,7 @@ import { useGlobalContext } from '../../Contexts/GlobalContext';
 import { QUIZSTEPS } from '../../Helpers/constants';
 import { QuizStartContainer } from '../../Utils/Styles/QuizModeStyle';
 import QuizCard from './QuizCard';
+import { FormButton } from '../../Utils/Styles/RegisterPageStyles';
 
 const QuizDone = () => {
   const { data, setStep, score } = useQuizStatContext();
@@ -46,11 +47,11 @@ const QuizDone = () => {
           <p>Your Answer's {item}.</p>
         )) }</div>
       </div>
-      <button 
+      <FormButton 
         onClick={()=> finishQuiz()}
       >
         Finish
-      </button>
+      </FormButton>
     </QuizStartContainer>
   );
 };
