@@ -7,6 +7,8 @@ export const SideBarContainer = styled.div`
     width: 100%;
     height: 100vh;
     background: var(--primary-400); 
+    border-bottom-right-radius: 2em;
+    border-top-right-radius: 2em;
 `;
 
 export const SideBarLogoContainer = styled.div`

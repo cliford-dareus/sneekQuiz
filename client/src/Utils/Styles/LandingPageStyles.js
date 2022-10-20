@@ -9,12 +9,17 @@ export const LandingPageShowcase = styled.div`
     width: 100%;
     height: 65%;
     background: black;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+`;
+
+export const LandingPageTitle = styled.h3`
+    color: var(--primary-400);
 `;
 
 export const ShowcaseButtonContainer = styled.div`
-    position: absolute;
-    top: 1em;
-    right: 1em;
+
 `;
 
 export const LandingPageCategoryContainer = styled.div`

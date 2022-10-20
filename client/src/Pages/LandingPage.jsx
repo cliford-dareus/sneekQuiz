@@ -12,7 +12,7 @@ import 'swiper/css/scrollbar';
 
 import { useGlobalContext } from '../Contexts/GlobalContext';
 
-import { LandingPageCategoryContainer, LandingPageCategorySlider, LandingPageCategoryTitle, LandingPageContainer, LandingPageShowcase, ShowcaseButtonContainer } from '../Utils/Styles/LandingPageStyles';
+import { LandingPageCategoryContainer, LandingPageCategorySlider, LandingPageCategoryTitle, LandingPageContainer, LandingPageShowcase, LandingPageTitle, ShowcaseButtonContainer } from '../Utils/Styles/LandingPageStyles';
 
 const LandingPage = () => {
   const { user, logoutUser } = useGlobalContext();
@@ -24,7 +24,7 @@ const LandingPage = () => {
   return (
     <LandingPageContainer>
       <LandingPageShowcase>
-        <h1>Showcase</h1>
+        <LandingPageTitle>Showcase</LandingPageTitle>
 
         <ShowcaseButtonContainer>
           {!user? 

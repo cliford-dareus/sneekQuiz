@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
-
-
 export const AddQuizContainer = styled.div`
-    width: 100%;
+    width: calc(100vw - 135px);
     height: calc(100% - 50px);
     display: flex;
     flex-direction: column;
@@ -11,10 +9,9 @@ export const AddQuizContainer = styled.div`
     align-items: center;
     position: relative;
 `;
-    
-    
-    export const AddQuizFormContainer = styled.div`
-    width: 50%;
+      
+export const AddQuizFormContainer = styled.div`
+    width: 60%;
     // height: 100%;
     display: flex;
     justify-content: center;
@@ -55,7 +52,7 @@ export const FormErrorContainer = styled.div`
 
 // Review Page
 export const QuizReviewContainer = styled.div`
-    width: 60%
+    width: 55%
 `;
 
 export const QuizCardContainer = styled.div`

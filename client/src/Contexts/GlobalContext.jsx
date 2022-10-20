@@ -7,6 +7,7 @@ const AppProvider = ({ children }) => {
     const [ isLoading, setIsLoading ] = useState(true);
     const [ user, setUser ] = useState(null);
     const [ quizzes, setQuizzes ] = useState([]);
+    const [ userStats, setUserStats ] = useState(null)
 
     const saveUser = (user) => {
         setUser(user);
@@ -29,6 +30,16 @@ const AppProvider = ({ children }) => {
         setIsLoading(false);
     };
 
+    const getUserStat = async () => {
+        try {
+            const {data} = await axios.get(`http://localhost:5000/api/v1/users/${user.userId}`, 
+            axios.defaults.withCredentials = true);
+            setUserStats(data)
+        } catch (error) {
+            console.log(error)
+        };
+    };
+
     const logoutUser = async () => {
         console.log('login out')
         try {
@@ -43,6 +54,8 @@ const AppProvider = ({ children }) => {
             console.log(error);
         };
     };
+
+    console.log(user)
 
     const fetchQuizzes = async () => {
         try {
@@ -64,11 +77,13 @@ const AppProvider = ({ children }) => {
   return (
     <globalContext.Provider
         value={{
-        isLoading,
-        saveUser,
-        user,
-        logoutUser,
-        quizzes
+            isLoading,
+            saveUser,
+            user,
+            logoutUser,
+            quizzes,
+            getUserStat,
+            userStats
       }}
     >
         {children}

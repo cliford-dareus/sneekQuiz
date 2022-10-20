@@ -38,6 +38,8 @@ export const SearchPageCardContainer = styled.div`
     height: 400px;
     padding: 4em 1em 0;
     background: var(--primary-400);
+    border-bottom-left-radius: .5em;
+    border-bottom-right-radius: .5em;
     display: flex;
     gap: 1em;
     justify-content: space-between;
@@ -78,6 +80,8 @@ export const SearchCardContainer = styled.div`
 `;
 
 export const SearchCardTitle = styled.h5`
+    color: var(--primary-500);
+    font-weight: bold;
     text-align: center;
 `;
 

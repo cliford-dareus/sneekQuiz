@@ -8,7 +8,8 @@ const {
     getSingleUser,
     updatePassword,
     updateUser,
-    showCurrentUser
+    showCurrentUser,
+    updateUserStat
 }= require('../controller/userController');
 
 router
@@ -16,7 +17,8 @@ router
     .get( authenticateUser, getAllUsers ); //Add the Premission// roles later
 router
     .route('/showMe')
-    .get(authenticateUser, showCurrentUser);
+    .get(authenticateUser, showCurrentUser)
+    .patch(authenticateUser, updateUserStat);
 router
     .route('/updateUser')
     .patch(authenticateUser, updateUser);

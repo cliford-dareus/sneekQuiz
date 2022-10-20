@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const DashBoardContainer = styled.div`
+    width: calc(100vw - 135px);
     padding: 1em;
     color: var(--primary-400);
     height: 100vh;
@@ -14,7 +15,7 @@ export const DashBoardHeader = styled.header`
     align-items: center;
 `;
 
-export const DashBoardTitle = styled.h4`
+export const DashBoardTitle = styled.h3`
 
 `;
 
@@ -73,13 +74,12 @@ export const DashBoardHero = styled.div`
 `;
 
 export const DashBoardAddButton = styled(Link)`
-    // width: 20%;
     display: flex;
     border-radius: .5em;
     justify-content: center;
     align-items: center;
     border: 1px solid var(--primary-500);
-    color: var(--primary-500);
+    color: var(--primary-100);
     font-size: 2rem;
     padding: .5em;
     cursor: pointer;
@@ -105,26 +105,34 @@ export const DashBoardContentBottom = styled.div`
 export const DashBoardUserResume = styled.div`
     width: 49%;
     height: 100%;
-    border: 1px solid white;
+    // border: 1px solid white;
+    border-radius: .5em;
+    padding: 1em;
+    background: var(--primary-500)
 `;
 
 export const DashBoardUserMetrics = styled.div`
     width: 49%;
     height: 100%;
     border: 1px solid white;
+    border-radius: .5em;
+    padding: 1em;
+    background: var(--primary-100);
+    color: var(--primary-900)
 `;
 
 // DashBoard Cards
-export const DashBoardCardContainer = styled.div`
-    width: 100%;
-    height: 100%;
-    background: white;
-    border-radius: .5em;
-    border: 1px solid black;
-    // box-shadow: ;
-    color: var(--primary-900);
-    overflow: hidden;
+export const ModalBtnsContainer = styled.div`
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    display: flex;
+    gap: .5em;
 `;
+
+// Resume Quiz
+
+// User Stat
 
 
 

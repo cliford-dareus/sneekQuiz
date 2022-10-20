@@ -28,7 +28,8 @@ const UserSchema = new mongoose.Schema({
     verificationToken: "String",
     verified: {type: 'Date'},
     passwordToken: 'String' ,
-    passwordTokenExpirationDate: "Date" 
+    passwordTokenExpirationDate: "Date" ,
+    quiz_solved: { type: 'Number', default: 0 }
 });
 
 UserSchema.pre('save', async function () {

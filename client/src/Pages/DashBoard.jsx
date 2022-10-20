@@ -9,22 +9,27 @@ import move from "lodash-move";
 
 import { DashBoardAddButton, DashBoardContainer, DashBoardContentBottom, DashBoardContentContainer, DashBoardContentTop, DashBoardHero, DashBoardUserMetrics, DashBoardUserQuizzes, DashBoardUserResume } from '../Utils/Styles/DashBoardStyle';
 
-import DashBoardCard from '../Components/DashBoardCard';
+import DashBoardCard from '../Components/DashBoard/DashBoardCard';
+import DashboardStats from '../Components/DashBoard/DashboardStats';
 
-const CARD_OFFSET = 30;
+const CARD_OFFSET = 20;
+
 
 const DashBoard = () => {
-  const { user } = useGlobalContext();
+  const { user, userStats, getUserStat } = useGlobalContext();
   const { setQuizzes, quizzes, setUser } = useUserContext();
 
   const moveToEnd = from => {
     setQuizzes(move(quizzes, from, quizzes.length - 1));
   };
 
+  console.log({...userStats})
+
   useEffect(() => {
     setUser(user)
+    getUserStat()
   },[]);
- 
+
   return (
       <DashBoardContainer>
         <NavBar />
@@ -35,7 +40,9 @@ const DashBoard = () => {
               <p>Create new, edit, or test your knowlegde with quizzes created by your peers!</p>
             </DashBoardHero>
             <DashBoardAddButton to='/addquiz'>
-              <GrAdd style={{stroke: 'red'}}/>
+              <GrAdd
+                className="icon"
+              />
             </DashBoardAddButton>
 
             <DashBoardUserQuizzes>
@@ -66,15 +73,19 @@ const DashBoard = () => {
               })}
             </DashBoardUserQuizzes>
           </DashBoardContentTop>
-
           <DashBoardContentBottom>
             <DashBoardUserResume>
+              {/* Resum Quiz and Stat */}
               hhh
             </DashBoardUserResume>
 
             <DashBoardUserMetrics>
-              <span>Your Scores</span>
-
+              <h5>Your Stats</h5>
+              {/* Quiz created, quiz solved,  */}
+                <DashboardStats 
+                  userStats={userStats} 
+                  quizzes={quizzes}
+                /> 
             </DashBoardUserMetrics>
           </DashBoardContentBottom>
         </DashBoardContentContainer>
@@ -86,7 +97,7 @@ export default DashBoard;
 
 const card = {
   position: "absolute",
-  width: "40%",
+  width: "50%",
   height: "100%",
   transformOrigin: "top center",
   listStyle: "none"

@@ -132,10 +132,18 @@ ul {
 }
 
 .green{
-  background-color: #0f5132;
+  background-color: #34ec1c;
   color: white;
 }
 
 .red{
   background-color: #ff0000;
+}
+
+.icon path {
+  stroke: var(--primary-100);
+}
+
+.swiper{
+  width: 100%;
 }
