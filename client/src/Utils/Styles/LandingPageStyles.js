@@ -2,7 +2,10 @@ import styled from "styled-components";
 
 
 
-export const LandingPageContainer = styled.div``;
+export const LandingPageContainer = styled.div`
+    width: calc(100vw - 15vw);
+    padding: 1em 2em;
+`;
 
 export const LandingPageShowcase = styled.div`
     position: relative;
@@ -23,22 +26,25 @@ export const ShowcaseButtonContainer = styled.div`
 `;
 
 export const LandingPageCategoryContainer = styled.div`
+    width: 100%;
     padding: 0 1em;
     color: var(--primary-400);
+    height: 300px;
 `;
 
 export const LandingPageCategoryTitle = styled.h4``;
 
 export const LandingPageCategorySlider = styled.div`
     // overflow: hidden;
-    width: calc(100vw - 20vw);
+    width: 100%;
+    padding: 2em 1em 1em;
 `;
 
 
 export const CategoryCardsContainer = styled.div`
     position: relative;
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 200px;
     border: 1px solid var(--primary-400);
 `;
 

@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const DashBoardContainer = styled.div`
-    width: calc(100vw - 135px);
-    padding: 1em;
+    width: 100%;
+    padding: 1em 2em;
     color: var(--primary-400);
     height: 100vh;
     position: relative;
@@ -20,7 +20,6 @@ export const DashBoardTitle = styled.h3`
 `;
 
 export const DashBoardControls = styled.div`
-    width: 32%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -35,6 +34,7 @@ export const DashBoardThemeControl = styled.div`
 export const DashBoardProfileContainer = styled.div`
     display: flex;
     align-items: center;
+    margin-left: 2em;
 `;
 
 export const DashBoardUsername = styled.span`
@@ -62,7 +62,7 @@ export const DashBoardContentContainer = styled.section`
 
 export const DashBoardContentTop = styled.div`
     width: 100%;
-    height: 40vh;
+    height: 45vh;
     display: flex;
     gap: 1em; 
     padding: 2em 0;
@@ -97,7 +97,7 @@ export const DashBoardContentBottom = styled.div`
     width: 100%;
     height: 45vh;
     display: flex;
-    gap: 1em; 
+    gap: 2em; 
     // padding: 1em 0;
     // background: red;
 `;

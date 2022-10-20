@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const AddQuizContainer = styled.div`
-    width: calc(100vw - 135px);
+    width: 100%;
     height: calc(100% - 50px);
     display: flex;
     flex-direction: column;

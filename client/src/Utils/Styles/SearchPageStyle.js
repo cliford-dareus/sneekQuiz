@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export const SearchPageContainer = styled.div`
     width: 100%;
     height: calc(100vh - 50px);
-    padding: 1em;
+    padding: 1em 2em;
     z-index: 1;
 `;
 
