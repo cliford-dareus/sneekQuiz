@@ -11,7 +11,7 @@ const SideBar = () => {
             <SideBarLogo
                 to='/'
             >
-                Quizness
+                Qness
             </SideBarLogo>
         </SideBarLogoContainer>
 

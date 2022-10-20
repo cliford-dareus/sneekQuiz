@@ -5,21 +5,23 @@ import styled from "styled-components";
 
 export const SideBarContainer = styled.div`
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background: var(--primary-400); 
     border-bottom-right-radius: 2em;
     border-top-right-radius: 2em;
+    overflow: hidden;
 `;
 
 export const SideBarLogoContainer = styled.div`
     width: 100%;
-    height: 70px;
+    // height: 70px;
     display: flex;
     padding: 1em;
 `;
 
 export const SideBarLogo = styled(Link)`
-
+    font-size: 2rem;
+    font-weight: bold;
 `;
 
 export const SideBarNavContainer = styled.div`
