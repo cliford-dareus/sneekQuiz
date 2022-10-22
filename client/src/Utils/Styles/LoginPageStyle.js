@@ -6,6 +6,7 @@ export const LoginPageContainer = styled.div`
     width: 100%;
     height: 100vh;
     padding: 1em 2em;
+    position: relative;
 `;
 
 export const LoginPageContentContainer = styled.div`

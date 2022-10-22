@@ -43,8 +43,8 @@ const QuizReview = () => {
   return (
     <QuizReviewContainer>
         <div>
-            <h4>{title}</h4>
-            <p>{category}</p>
+            <h4>Quiz Title: {title}</h4>
+            <p>Category: {category}</p>
         </div>
         <QuizCardContainer>
             <Swiper

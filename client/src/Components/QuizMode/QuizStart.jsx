@@ -33,8 +33,8 @@ const QuizStart = () => {
     <QuizStartContainer>
       {quiz && <h4>{quiz.title}</h4>}
       <div>
-        <p>{quiz.category}</p>
-        <p>{quiz.user}</p>
+        <p>{quiz && quiz.category}</p>
+        <p>{quiz && quiz.user}</p>
       </div>
       <FormButton onClick={starQuiz}>Start Quiz</FormButton>
     </QuizStartContainer>

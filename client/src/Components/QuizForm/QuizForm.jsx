@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AddQuizFormContainer, InputField } from '../../Utils/Styles/AddQuizStyle';
 import { useFormStateContext } from '../../Contexts/FormContexts/FormHooks';
 import { FIELDS, STEPS } from '../../Helpers/constants';
 import { FormButton } from '../../Utils/Styles/RegisterPageStyles';
+import QuizFormError from './QuizFormError';
 
 export const QuizForm = () => {
   const { fields, setStep, updateFields} = useFormStateContext();
+  const [ error, setError ] = useState('');
   const [ data, setData ] = useState({
     question: '',
     correct_answer: '',
@@ -17,6 +19,16 @@ export const QuizForm = () => {
   };
 
   const next = () => {
+    if(!data.question || !data.correct_answer || !data.wrong_answer) {
+      setError('All Field must be populate!');
+      return
+    }
+
+    const newData = {...data, wrong_answer: data.wrong_answer.split(',')};
+
+    updateFields(FIELDS.QUIZ, [...fields.quiz, {newData}]);
+    setData({question: '', correct_answer: '', wrong_answer: ''});
+    
     setStep(STEPS.REVIEW);
   };
 
@@ -27,11 +39,26 @@ export const QuizForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+
+    if(!data.question || !data.correct_answer || !data.wrong_answer) {
+      setError('All Field must be populate!');
+      return
+    }
     const newData = {...data, wrong_answer: data.wrong_answer.split(',')};
 
     updateFields(FIELDS.QUIZ, [...fields.quiz, {newData}]);
     setData({question: '', correct_answer: '', wrong_answer: ''});
   }
+
+  useEffect(()=>{
+    const timeOut = setTimeout(()=> {
+      setError('')
+    },[3000]);
+
+    return ()=> {
+      clearTimeout(timeOut);
+    };
+  },[error]);
 
   return (
     <AddQuizFormContainer>
@@ -81,6 +108,10 @@ export const QuizForm = () => {
           </div>
         </div>
       </form>
+
+      {error && <QuizFormError 
+          error={error}
+      />}
     </AddQuizFormContainer>
   );
 };

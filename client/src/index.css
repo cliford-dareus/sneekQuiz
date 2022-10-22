@@ -147,3 +147,7 @@ ul {
 .swiper{
   width: 100%;
 }
+
+select option{
+  background-color: var(--primary-500);
+}

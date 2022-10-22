@@ -46,7 +46,8 @@ export const LoginCTA = styled(Link)`
 // Form Styled
 export const FormRowContainer = styled.div`
     margin-bottom: 1em;
-    // background: white;
+    background: transparent;
+
 `;
 
 export const FormLabel = styled.label`

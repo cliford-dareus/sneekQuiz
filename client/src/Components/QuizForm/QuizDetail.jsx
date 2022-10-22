@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AddQuizFormContainer, Form, InputContainer, InputField, SelectField } from '../../Utils/Styles/AddQuizStyle';
 import { useFormStateContext } from '../../Contexts/FormContexts/FormHooks';
 import { FIELDS, STEPS } from '../../Helpers/constants';
@@ -36,6 +36,16 @@ export const QuizDetail = () => {
     setStep(STEPS.QUIZ);
   };
 
+  useEffect(()=>{
+    const timeOut = setTimeout(()=> {
+      setError('')
+    },[3000]);
+
+    return ()=> {
+      clearTimeout(timeOut);
+    };
+  },[error]);
+
   return (
     <AddQuizFormContainer>
         <Form onSubmit={onSubmit}>
@@ -66,9 +76,9 @@ export const QuizDetail = () => {
             </FormButton>
         </Form>
         {/* Add Framer Motion animation */}
-        <QuizFormError 
+        {error && <QuizFormError 
           error={error}
-        />
+        />}
     </AddQuizFormContainer>
   );
 };

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios  from 'axios';
 import FormRow from '../Components/FormRow';
 import { Form, FormButton, FormContainer, LoginCTA, RegisterPageContainer, RegisterPageContenContainer } from '../Utils/Styles/RegisterPageStyles';
 import { SearchPageTitle } from '../Utils/Styles/SearchPageStyle';
+import QuizFormError from '../Components/QuizForm/QuizFormError';
 
 const RegisterPage = () => {
   const [ userInfo, setUserInfo ] = useState({
@@ -11,6 +12,7 @@ const RegisterPage = () => {
     password: '',
     ocupation: ''
   });
+  const [ error, setError ] = useState('');
 
   const handleChange = (event) =>{
     setUserInfo({...userInfo, [event.target.name] : event.target.value});
@@ -28,9 +30,20 @@ const RegisterPage = () => {
       console.log(registerNewUser)
       setUserInfo({ name: '', email: '', password: '', ocupation: ''})
     } catch (error) {
+      setError(error.response.data.msg)
       console.log(error)
     }
   };
+
+  useEffect(()=>{
+    const timeOut = setTimeout(()=> {
+      setError('')
+    },[3000]);
+
+    return ()=> {
+      clearTimeout(timeOut);
+    };
+  },[error]);
 
   return (
     <RegisterPageContainer>
@@ -82,7 +95,7 @@ const RegisterPage = () => {
           </p>
         </FormContainer>
       </RegisterPageContenContainer>
-      
+      {error && <QuizFormError error={error}/>}
     </RegisterPageContainer>
   );
 };
