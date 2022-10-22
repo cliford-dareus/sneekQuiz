@@ -10,19 +10,30 @@ const QuizFormProgress = () => {
     <QuizFormProgressContainer>
       <QuizProgress>
         <ProgressItem>
-          <ProgressCircle defaultColor={step === 'DETAILS_STEP'}>1</ProgressCircle>
+          <ProgressCircle 
+            defaultColor={step === 'DETAILS_STEP'}
+          >
+            1
+          </ProgressCircle>
         </ProgressItem>
 
         <ProgressLine />
 
         <ProgressItem>
-          <ProgressCircle defaultColor={step === 'QUIZ_STEP'}>2</ProgressCircle>
+          <ProgressCircle 
+            defaultColor={step === 'QUIZ_STEP'}>
+              2
+            </ProgressCircle>
         </ProgressItem>
 
         <ProgressLine />
 
         <ProgressItem>
-          <ProgressCircle defaultColor={step === 'REVIEW_STEP'}>3</ProgressCircle>
+          <ProgressCircle 
+            efaultColor={step === 'REVIEW_STEP'}
+            >
+              3
+          </ProgressCircle>
         </ProgressItem>
       </QuizProgress>
     </QuizFormProgressContainer>

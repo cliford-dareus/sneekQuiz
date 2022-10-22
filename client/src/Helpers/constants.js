@@ -48,4 +48,8 @@ export const defaultCategory = [
         name: 'Geology',
         value: 'geology'
     },
+    {
+        name: 'Geometry',
+        value: 'geometry'
+    },
 ]

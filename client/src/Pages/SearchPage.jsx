@@ -4,7 +4,7 @@ import { defaultCategory } from '../Helpers/constants';
 import { useUserContext } from '../Contexts/UserQuizzesContext';
 import axios from 'axios';
 import SearchedCard from '../Components/SearchedCard';
-import { SearchCardContainer, SearchCardTitle, SearchPageCardContainer, SearchPageContainer, SearchPageContentContainer, SearchPageFormContainer, SearchPageTitle } from '../Utils/Styles/SearchPageStyle';
+import { DefaultCategory, DefaultCategoryItem, SearchCardContainer, SearchCardTitle, SearchPageCardContainer, SearchPageContainer, SearchPageContentContainer, SearchPageFormContainer, SearchPageTitle } from '../Utils/Styles/SearchPageStyle';
 
 const SearchPage = () => {
     const [ quiz, setQuiz ] = useState([]);
@@ -59,12 +59,12 @@ const SearchPage = () => {
                 <SearchCardContainer>
                     <SearchCardTitle>Category</SearchCardTitle>
 
-                    <div>
+                    <DefaultCategory>
                         {defaultCategory.map((category) => {
                             const { name, value } = category
-                            return <div onClick={() => setCategory(value)}>{name}</div>
+                            return <DefaultCategoryItem onClick={() => setCategory(value)}>{name}</DefaultCategoryItem>
                         })}
-                    </div>
+                    </DefaultCategory>
                 </SearchCardContainer>
             </SearchPageCardContainer>
         </SearchPageContentContainer>

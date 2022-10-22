@@ -5,6 +5,7 @@ const CategoryCards = ({ card }) => {
   
   return (
     <CategoryCardsContainer>
+        <span></span>
         <CategoryCardsTitle>
             { card.name}
         </CategoryCardsTitle>

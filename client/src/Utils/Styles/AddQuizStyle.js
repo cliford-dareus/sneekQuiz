@@ -108,7 +108,7 @@ export const QuizFormProgressContainer = styled.div`
     margin-bottom: 1em;
     background: var(--primary-500);
     position: absolute;
-    top: 14em;
+    top: 10em;
 `;
 
 export const QuizProgress = styled.div`

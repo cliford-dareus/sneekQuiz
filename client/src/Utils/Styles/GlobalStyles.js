@@ -7,7 +7,6 @@ export const AppContainer = styled.div`
     color: --primary-400;
     display: grid;
     grid-template-columns: 15vw auto;
-    // place-items: center;
     overflow: hidden;
 `;
 

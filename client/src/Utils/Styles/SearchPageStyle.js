@@ -43,41 +43,20 @@ export const SearchPageCardContainer = styled.div`
     display: flex;
     gap: 2em;
     justify-content: space-between;
-    // :before{
-    //     content: '';
-    //     position: absolute;
-    //     width: 60%;
-    //     height: 80px;
-    //     aspect-ratio: 1;
-    //     border-radius: 52%;
-    //     background: var(--primary-400);
-    //     top: -2.3em;
-    //     left: 0px;
-    //     z-index: -2;
-    // }
-    // :after{
-    //     content: '';
-    //     position: absolute;
-    //     width: 40%;
-    //     height: 80px;
-    //     aspect-ratio: 1;
-    //     border-radius: 100%;
-    //     background: var(--primary-500);
-    //     top: -3em;
-    //     right: 0;
-    //     z-index: 2;
-    // }
 `;
 
 // Search Card Style
 export const SearchCardContainer = styled.div`
     width: 33%;
     height: 100%;
-    border: 1px solid var(--primary-100);
+    // border: 1px solid var(--primary-100);
     border-radius: .5em;
     padding: 1em;
     background: var(--primary-100);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 `;
 
 export const SearchCardTitle = styled.h3`
@@ -87,5 +66,29 @@ export const SearchCardTitle = styled.h3`
 `;
 
 export const SearchResultContainer = styled(Link)`
-    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 35px;
+`;
+
+export const DefaultCategory = styled.div`
+    width: 100%;
+    height: 100%;
+    padding-top: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: .3em;
+`;
+
+export const DefaultCategoryItem = styled.div`
+    width: 100%;
+    padding: .3em;
+    background: var(--primary-300);
+    border-radius: .5em;
+    color: var(--primary-100);
+    cursor: pointer;
+    &:hover{
+        background: var(--primary-400)
+    }
 `;

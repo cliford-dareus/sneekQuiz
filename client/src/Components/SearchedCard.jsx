@@ -1,12 +1,13 @@
 import React from 'react';
-import { SearchCardContainer, SearchCardTitle, SearchResultContainer } from '../Utils/Styles/SearchPageStyle';
+import { DefaultCategory, SearchCardContainer, SearchCardTitle, SearchResultContainer } from '../Utils/Styles/SearchPageStyle';
 
 const SearchedCard = ({ quiz, title }) => {
   
   return (
     <SearchCardContainer>
       <SearchCardTitle>{title}</SearchCardTitle>
-      {quiz.length !== 0?
+      <DefaultCategory>
+        {quiz.length !== 0?
         quiz.map((item)=> {
         return (
           <SearchResultContainer
@@ -17,6 +18,7 @@ const SearchedCard = ({ quiz, title }) => {
           </SearchResultContainer>
         )
       }): 'Search for a Quiz'}
+      </DefaultCategory>
     </SearchCardContainer>
   );
 };

@@ -92,11 +92,35 @@ export const CategoryCardsContainer = styled.div`
     height: 200px;
     border-radius: .5em;
     border: 1px solid var(--primary-400);
+    overflow: hidden;
+    cursor: pointer;
+    span{
+        position: absolute;
+        top: 0;
+        left: 0;
+        rigth: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        &:hover{
+            background: var(--primary-500);
+            @keyframes slideIn {
+            0% {
+                clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%);
+            }
+            100% {
+                clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+            }
+        }
+            animation: 200ms slideIn ease;
+        }
+    }
 `;
 
 export const CategoryCardsTitle = styled.h5`
     position: absolute;
-    bottom: .1em;
+    bottom: .5em;
     left: 50%;
+    z-index: 3;
     transform: translateX(-50%);
 `;
