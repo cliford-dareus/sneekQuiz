@@ -15,12 +15,12 @@ export const navList = [
         to: '/dashboard'
     },
     {
-        title: 'Favorite', //Come with a better idea
+        title: 'Browse', //Come with a better idea
         icon: '',
-        to: '/favorite'
+        to: '/browse'
     },
     {
-        title: 'Favorite', //Come with a better idea
+        title: 'Setting', //Come with a better idea
         icon: '',
         to: '/favorite'
     },

@@ -16,7 +16,7 @@ const DashboardStats = ({userStats, quizzes}) => {
                 >
                   <span
                     style={{ 
-                      fontSize: '5rem', 
+                      fontSize: 'clamp(7rem, 7vw, 20rem)', 
                       fontWeight: 'bold', 
                       lineHeight: '1'}}
                     >

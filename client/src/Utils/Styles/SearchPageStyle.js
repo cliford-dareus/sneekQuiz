@@ -10,6 +10,7 @@ export const SearchPageContainer = styled.div`
 
 export const SearchPageTitle = styled.h3`
     color: var(--primary-400);
+    // font-weight: bold;
 `;
 
 export const SearchPageFormContainer = styled.div`
@@ -22,7 +23,7 @@ export const SearchPageFormContainer = styled.div`
 export const SearchPageContentContainer = styled.div`
     width: 100%;
     height: calc(100vh - 90px);
-    padding: 6.5em 0 1em 0;
+    padding: 8em 0 1em 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,11 +36,10 @@ export const SearchPageContentContainer = styled.div`
 export const SearchPageCardContainer = styled.div`
     position: relative;
     width: 100%;
-    height: 75%;
+    height: 70%;
     padding: 2em;
-    background: var(--primary-400);
-    border-bottom-left-radius: .5em;
-    border-bottom-right-radius: .5em;
+    background: linear-gradient(var(--primary-400), var(--primary-500));
+    border-radius: .5em;
     display: flex;
     gap: 2em;
     justify-content: space-between;

@@ -16,7 +16,7 @@ export const DashBoardHeader = styled.header`
 `;
 
 export const DashBoardTitle = styled.h3`
-
+    
 `;
 
 export const DashBoardControls = styled.div`
@@ -72,6 +72,11 @@ export const DashBoardContentTop = styled.div`
 
 export const DashBoardHero = styled.div`
     width: 40%;
+   h1{
+    font-size: clamp(2rem, 5.5vw,5.5rem);
+    font-weight: bold;
+    line-Height: 1;
+   }
 `;
 
 export const DashBoardAddButton = styled(Link)`
@@ -119,7 +124,7 @@ export const DashBoardUserMetrics = styled.div`
     border: 1px solid white;
     border-radius: .5em;
     padding: 1em;
-    background: var(--primary-100);
+    background: linear-gradient(var(--primary-400), var(--primary-500));
     color: var(--primary-900)
 `;
 

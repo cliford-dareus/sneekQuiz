@@ -20,10 +20,11 @@ export const RegisterPageContenContainer = styled.div`
 export const FormContainer = styled.div`
     // background: white;
     // height: 50%;
-    width: 40%;
+    width: 50%;
 `;
 
 export const Form = styled.form`
+    width: 100%;
     margin-bottom: 1em;
 `;
 

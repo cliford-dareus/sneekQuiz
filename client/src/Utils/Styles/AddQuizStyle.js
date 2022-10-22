@@ -11,7 +11,7 @@ export const AddQuizContainer = styled.div`
 `;
       
 export const AddQuizFormContainer = styled.div`
-    width: 40%;
+    width: 50%;
     // height: 100%;
     display: flex;
     justify-content: center;
@@ -78,7 +78,7 @@ export const FormErrorContainer = styled.div`
 
 // Review Page
 export const QuizReviewContainer = styled.div`
-    width: 55%
+    width: 50%
 `;
 
 export const QuizCardContainer = styled.div`
@@ -107,6 +107,8 @@ export const QuizFormProgressContainer = styled.div`
     border-radius: .5em;
     margin-bottom: 1em;
     background: var(--primary-500);
+    position: absolute;
+    top: 14em;
 `;
 
 export const QuizProgress = styled.div`

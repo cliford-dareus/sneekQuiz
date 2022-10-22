@@ -36,7 +36,7 @@ const DashBoard = () => {
         <DashBoardContentContainer>
           <DashBoardContentTop>
             <DashBoardHero>
-              <h2>Manage your Quizzes</h2>
+              <h1>Manage your Quizzes</h1>
               <p>Create new, edit, or test your knowlegde with quizzes created by your peers!</p>
             </DashBoardHero>
             <DashBoardAddButton to='/addquiz'>

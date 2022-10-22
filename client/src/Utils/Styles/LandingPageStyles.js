@@ -13,15 +13,55 @@ export const LandingPageContainer = styled.div`
 
 export const LandingPageShowcase = styled.div`
     position: relative;
+    padding: 1em;
+    border-radius: .5em;
     width: 100%;
     height: 60%;
-    background: black;
+    background: linear-gradient(var(--primary-400), var(--primary-500));
+`;
+
+export const LandingPageTop = styled.div`
+    width: 100%;
+    height: 50px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+`;
+
+export const LandingPageShowcaseContent = styled.div`
+    width: 70%;
+    padding: 1em 0;
+    color: var(--primary-500);
+    margin-top: 2em;
+    h1{
+        font-weight: bolder;
+        line-Height: 1;
+        font-size: clamp(2rem, 6vw, 5rem);
+    };
+    p{
+        color: var(--primary-100);
+        font-weight: bolder;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        line-Height: 1;
+    };
+    div{
+        margin-top: 1em;
+        display: flex;
+        gap: 1em;
+    }
+`;
+
+export const ShowcaseBtn = styled.div`
+    padding: .5em 1em;
+    outline: none;
+    border: none;
+    border-radius: .5em;
+    color: var(--primary-100);
+    background: var(--primary-500);
 `;
 
 export const LandingPageTitle = styled.h3`
-    color: var(--primary-400);
+    color: var(--primary-500);
 `;
 
 export const ShowcaseButtonContainer = styled.div`
@@ -50,6 +90,7 @@ export const CategoryCardsContainer = styled.div`
     position: relative;
     width: 100%;
     height: 200px;
+    border-radius: .5em;
     border: 1px solid var(--primary-400);
 `;
 

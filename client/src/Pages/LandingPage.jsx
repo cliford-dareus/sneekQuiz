@@ -12,7 +12,7 @@ import 'swiper/css/scrollbar';
 
 import { useGlobalContext } from '../Contexts/GlobalContext';
 
-import { LandingPageCategoryContainer, LandingPageCategorySlider, LandingPageCategoryTitle, LandingPageContainer, LandingPageShowcase, LandingPageTitle, ShowcaseButtonContainer } from '../Utils/Styles/LandingPageStyles';
+import { LandingPageCategoryContainer, LandingPageCategorySlider, LandingPageCategoryTitle, LandingPageContainer, LandingPageShowcase, LandingPageShowcaseContent, LandingPageTitle, LandingPageTop, ShowcaseBtn, ShowcaseButtonContainer } from '../Utils/Styles/LandingPageStyles';
 
 const LandingPage = () => {
   const { user, logoutUser } = useGlobalContext();
@@ -24,28 +24,38 @@ const LandingPage = () => {
   return (
     <LandingPageContainer>
       <LandingPageShowcase>
-        <LandingPageTitle>Showcase</LandingPageTitle>
+        <LandingPageTop>
+          <LandingPageTitle>Showcase</LandingPageTitle>
+          <ShowcaseButtonContainer>
+            {!user? 
+            <>
+              <Button 
+                text='Sign In' 
+                to='/login'
+              />
+              <Button 
+                text='Sign Up' 
+                border='true' 
+                to='/register'
+              /> 
+            </> :
+              <Button 
+                text='Log Out'
+                border='true'
+                logOut={logOut}
+              />
+            }
+          </ShowcaseButtonContainer>
+        </LandingPageTop>
 
-        <ShowcaseButtonContainer>
-          {!user? 
-          <>
-            <Button 
-              text='Sign In' 
-              to='/login'
-            />
-            <Button 
-              text='Sign Up' 
-              border='true' 
-              to='/register'
-            /> 
-          </> :
-            <Button 
-              text='Log Out'
-              border='true'
-              logOut={logOut}
-            />
-          }
-        </ShowcaseButtonContainer>
+        <LandingPageShowcaseContent>
+          <p>Create, study, and quiz yourself!</p>
+          <h1>A fast and ligth weight flashcards and study tools.</h1>
+          <div>
+            <ShowcaseBtn>Browse Quizzes</ShowcaseBtn>
+            <ShowcaseBtn>Join Us for free</ShowcaseBtn>
+          </div>
+        </LandingPageShowcaseContent>
       </LandingPageShowcase>
 
       <LandingPageCategoryContainer>

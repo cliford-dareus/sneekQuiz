@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { AddQuizFormContainer, InputField } from '../../Utils/Styles/AddQuizStyle';
+import { AddQuizFormContainer, Form, InputField } from '../../Utils/Styles/AddQuizStyle';
 import { useFormStateContext } from '../../Contexts/FormContexts/FormHooks';
 import { FIELDS, STEPS } from '../../Helpers/constants';
 import { FormButton } from '../../Utils/Styles/RegisterPageStyles';
@@ -62,7 +62,7 @@ export const QuizForm = () => {
 
   return (
     <AddQuizFormContainer>
-      <form onSubmit={onSubmit}>
+      <Form onSubmit={onSubmit}>
         <InputField 
           name='question'
           type="text" 
@@ -107,7 +107,7 @@ export const QuizForm = () => {
             </FormButton>
           </div>
         </div>
-      </form>
+      </Form>
 
       {error && <QuizFormError 
           error={error}
