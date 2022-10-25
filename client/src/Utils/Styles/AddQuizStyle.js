@@ -28,9 +28,10 @@ export const InputField = styled.input`
     width: 100%;
     outline: none;
     border: none;
-    border-bottom: 1px solid var(--primary-400);
+    border: 1px solid var(--primary-400);
+    border-radius: .5em;
     background: transparent;
-    // padding: .5em;
+    padding: .2em;
     font-size: 1rem;
     margin-bottom: 1em; 
     color: var(--primary-100);
@@ -51,6 +52,12 @@ export const SelectField = styled.select`
 
 export const InputContainer = styled.div`
     width: 100%;
+`;
+
+export const FormButtonContainer = styled.div`
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
 `;
 
 export const FormErrorContainer = styled.div`
@@ -143,10 +150,10 @@ export const ProgressLine = styled.div`
       width: 0px;
     }
     100% {
-      width: 100px;
+      width: 40%;
     }
   }
-  animation: 1s expandProgressLine ease;
+  animation: 2s expandProgressLine ease;
 `;
 
 export const ProgressItem = styled.div`

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { AddQuizFormContainer, Form, InputField } from '../../Utils/Styles/AddQuizStyle';
+import { AddQuizFormContainer, Form, FormButtonContainer, InputField } from '../../Utils/Styles/AddQuizStyle';
 import { useFormStateContext } from '../../Contexts/FormContexts/FormHooks';
 import { FIELDS, STEPS } from '../../Helpers/constants';
 import { FormButton } from '../../Utils/Styles/RegisterPageStyles';
@@ -87,26 +87,26 @@ export const QuizForm = () => {
           value={data.wrong_answer}
         />
 
-        <div>
+        <FormButtonContainer>
           <FormButton
             type='button'
             onClick={goBack}
           >
             Prev
           </FormButton>
-          <div>
-            <FormButton
-            >
+          
+          <FormButton
+          >
               add Question
-            </FormButton>
-            <FormButton
+          </FormButton>
+          <FormButton
               type='button'
               onClick={next}
-            >
+          >
               Next
-            </FormButton>
-          </div>
-        </div>
+          </FormButton>
+          
+        </FormButtonContainer>
       </Form>
 
       {error && <QuizFormError 

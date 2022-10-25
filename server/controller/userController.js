@@ -8,8 +8,8 @@ const {
 } = require('../Utils');
 
 const getAllUsers = async (req, res) => {
-    const users = await User.find({})
-    res.status(StatusCodes.OK).json({ users })
+    const users = await User.find({});
+    res.status(StatusCodes.OK).json({ users });
 };
 
 // Get user stats
@@ -20,7 +20,7 @@ const getSingleUser = async (req, res) => {
     };
 
     chechPermissions(req.user, user._id);
-    const stat = user.quiz_solved
+    const stat = user.quiz_solved;
     res.status(StatusCodes.OK).json({ stat });
 };
 
@@ -39,7 +39,7 @@ const updateUser = async (req, res) => {
 
     user.email = email;
     user.name = name;
-    user.quiz_solved
+    user.quiz_solved;
 
     await user.save();
 

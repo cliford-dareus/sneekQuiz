@@ -18,7 +18,7 @@ const register = async (req, res) => {
     const emailAlreadyExists = await User.find({ email: email });
     
     if(!emailAlreadyExists) {
-        throw new CustomError.BadRequestError(`Email already exists`)
+        throw new CustomError.BadRequestError(`Email already exists`);
     };
     
     const verificationToken = crypto.randomBytes(40).toString('hex');
@@ -115,7 +115,7 @@ const login = async (req, res ) => {
 
 const logout = async (req, res) => {
   await Token.findOneAndDelete({ user: req.user.userId });
-    console.log(req.user.userId)
+    console.log(req.user.userId);
   res.cookie('accessToken', 'logout', {
     httpOnly: true,
     expires: new Date(Date.now()),

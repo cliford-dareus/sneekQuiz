@@ -60,9 +60,10 @@ export const FormInput = styled.input`
     width: 100%;
     border: none;
     outline: none;
-    border-bottom: 1px solid var(--primary-400);
+    border: 1px solid var(--primary-400);
+    border-radius: .5em;
     background: transparent;
-    // padding: .5em;
+    padding: .2em;
     color: var(--primary-100);
     font-size: 1.1rem;
 `;

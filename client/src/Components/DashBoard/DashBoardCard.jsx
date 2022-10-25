@@ -4,6 +4,7 @@ import { BsThreeDots, BsFillTrashFill } from 'react-icons/bs';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ModalBtnsContainer } from '../../Utils/Styles/DashBoardStyle';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const DashBoardCard = ({ quiz }) => {
   const [selectedId, setSelectedId] = useState(null);

@@ -6,7 +6,7 @@ import { useGlobalContext } from '../../Contexts/GlobalContext';
 import { useUserContext } from '../../Contexts/UserQuizzesContext';
 import { useFormStateContext } from '../../Contexts/FormContexts/FormHooks';
 import { FIELDS, STEPS } from '../../Helpers/constants';
-import { QuizCardContainer, QuizReviewContainer } from '../../Utils/Styles/AddQuizStyle';
+import { FormButtonContainer, QuizCardContainer, QuizReviewContainer } from '../../Utils/Styles/AddQuizStyle';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
@@ -40,6 +40,7 @@ const QuizReview = () => {
         };
     };
 
+
   return (
     <QuizReviewContainer>
         <div>
@@ -66,7 +67,7 @@ const QuizReview = () => {
             </Swiper>
         </QuizCardContainer>
 
-        <div>
+        <FormButtonContainer>
             <FormButton
                 type='button'
                 onClick={goBack}
@@ -78,7 +79,7 @@ const QuizReview = () => {
             >
                 Submit
             </FormButton>
-        </div>
+        </FormButtonContainer>
     </QuizReviewContainer>
   );
 };
